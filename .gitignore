@@ -35,7 +35,7 @@ yarn-error.log*
 .vercel
 
 #secrets
-*keys*
+#*keys*
 
 # generated
 graphql-types.ts
