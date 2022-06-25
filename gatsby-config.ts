@@ -1,8 +1,23 @@
 import type { GatsbyConfig } from 'gatsby';
 import { mongo_atlas_password, mongo_atlas_username } from './keys';
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+console.log("Env: " + process.env.NODE_ENV);
+console.log("== CONFIG START ==")
+
+const auths = Object.keys(process.env)
+  .filter(a => a.includes("AUTH"))
+  .reduce((acc, item) => {
+    console.log(item);
+    acc[item] = process.env[item];
+    return acc;
+  }, {});
+console.log("Auths", auths);
+
 const mongoDbConnectionString = `mongodb+srv://${encodeURIComponent(mongo_atlas_username)}:${encodeURIComponent(mongo_atlas_password)}@showribbon-test.gwiyu.mongodb.net`;
-console.log(mongoDbConnectionString);
 
 const config: GatsbyConfig = {
   // Since `gatsby-plugin-typescript` is automatically included in Gatsby you
