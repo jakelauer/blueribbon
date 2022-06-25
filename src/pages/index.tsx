@@ -4,6 +4,7 @@ import LogoutButton from '@/components/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'gatsby';
 import React from 'react';
+import logo from '@/static/logo_small.png';
 
 interface Props {
   data: any;
@@ -14,7 +15,9 @@ const Index: React.FC<Props> = () => {
 
   return (
     <App>
-      <h1>ShowRibbon 🎗️</h1>
+      <h1>
+        <img src={logo} alt="Show Ribbon" />
+      </h1>
       <pre>{JSON.stringify(user, null, 2)}</pre>
       <div>
         <LoginButton />

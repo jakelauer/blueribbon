@@ -31,9 +31,11 @@
   "dependencies": {
     "@auth0/auth0-react": "1.10.2",
     "@bungie/datastore": "1.0.2",
+    "@types/prop-types": "15.7.5",
     "gatsby": "4.16.0",
     "gatsby-plugin-graphql-codegen": "3.1.1",
     "gatsby-source-mongodb": "4.16.0",
+    "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tsconfig-paths-webpack-plugin": "3.5.2"
