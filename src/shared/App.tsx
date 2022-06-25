@@ -12,7 +12,6 @@ import 'slick-carousel/slick/slick.css';
 
 import { MotionLazyContainer } from '@/components/animate';
 import ProgressBar from '@/components/ProgressBar';
-import ThemeSettings from '@/components/settings';
 import ThemeColorPresets from '@/components/settings/ThemeColorPresets';
 import ThemeContrast from '@/components/settings/ThemeContrast';
 import ThemeRtlLayout from '@/components/settings/ThemeRtlLayout';
@@ -47,11 +46,9 @@ export const App: React.FC<Props> = ({ children }) => {
             <SettingsProvider defaultSettings={settings}>
               <MotionLazyContainer>
                 <ThemeProvider>
-                  <ThemeSettings>
-                    <ProgressBar />
-                    <Navigation />
-                    {children}
-                  </ThemeSettings>
+                  <ProgressBar />
+                  <Navigation />
+                  {children}
                 </ThemeProvider>
               </MotionLazyContainer>
             </SettingsProvider>
