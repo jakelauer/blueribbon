@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
-import LogoutButton from '@/components/LogoutButton';
+import LogoutButton from '@/shared/LogoutButton';
 
 const Account = () => {
   const { user } = useAuth0();

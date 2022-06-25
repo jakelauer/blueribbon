@@ -1,24 +1,16 @@
-import { App } from '@/components/App';
-import LoginButton from '@/components/LoginButton';
-import LogoutButton from '@/components/LogoutButton';
-import { useAuth0 } from '@auth0/auth0-react';
+import Page from '@/components/Page';
+import LoginButton from '@/shared/LoginButton';
+import LogoutButton from '@/shared/LogoutButton';
 import { Link } from 'gatsby';
 import React from 'react';
-import logo from '@/static/logo_small.png';
 
 interface Props {
   data: any;
 }
 
 const Index: React.FC<Props> = () => {
-  const { user } = useAuth0();
-
   return (
-    <App>
-      <h1>
-        <img src={logo} alt="Show Ribbon" />
-      </h1>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+    <Page title="Account">
       <div>
         <LoginButton />
         <LogoutButton />
@@ -26,7 +18,7 @@ const Index: React.FC<Props> = () => {
           <Link to="/account">Visit Your Account</Link>
         </p>
       </div>
-    </App>
+    </Page>
   );
 };
 

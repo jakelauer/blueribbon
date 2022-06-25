@@ -23,8 +23,11 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "no-undef": "off",
     "prettier/prettier": "error",
     "react/prop-types": "off",
+    "react/no-children-prop": "off",
+    "react/display-name": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
