@@ -17,6 +17,10 @@ export const Navigation: React.FC = () => {
       label: `Home`,
     },
     {
+      to: `/events`,
+      label: `Events`,
+    },
+    {
       to: `/account`,
       label: `Account`,
     },
@@ -32,6 +36,7 @@ export const Navigation: React.FC = () => {
             justifyContent: `flex-end`,
             flexGrow: 1,
             display: { xs: `none`, md: `flex` },
+            alignItems: `center`,
           }}
         >
           {links.map((link, i) => (
@@ -39,7 +44,7 @@ export const Navigation: React.FC = () => {
               key={i}
               component={Link}
               to={link.to}
-              sx={{ my: 2, display: `block` }}
+              sx={{ my: 2, display: `block`, alignSelf: `flex-start` }}
             >
               {link.label}
             </Button>
