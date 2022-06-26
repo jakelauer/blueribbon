@@ -25,18 +25,21 @@ import React, { ReactNode } from 'react';
 
 import { Navigation } from './Navigation';
 
-// scroll bar
-// lightbox
-// map
-// editor
-// slick-carousel
-// lazy image
-// fullcalendar
 interface Props {
   children: ReactNode;
 }
 
 export const App: React.FC<Props> = ({ children }) => {
+  return (
+    <Wrapper>
+      <ProgressBar />
+      <Navigation />
+      <Container maxWidth={false}>{children}</Container>
+    </Wrapper>
+  );
+};
+
+const Wrapper: React.FC<Props> = ({ children }) => {
   const settings = getSettings(Cookies.get());
 
   return (
@@ -46,11 +49,7 @@ export const App: React.FC<Props> = ({ children }) => {
           <CollapseDrawerProvider>
             <SettingsProvider defaultSettings={settings}>
               <MotionLazyContainer>
-                <ThemeProvider>
-                  <ProgressBar />
-                  <Navigation />
-                  <Container maxWidth={false}>{children}</Container>
-                </ThemeProvider>
+                <ThemeProvider>{children}</ThemeProvider>
               </MotionLazyContainer>
             </SettingsProvider>
           </CollapseDrawerProvider>
