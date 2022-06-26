@@ -22,6 +22,7 @@ import { getSettings } from '@/ui/utils/getSettings';
 import { Container } from '@mui/material';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
+import { Helmet } from 'react-helmet';
 
 import { Navigation } from './Navigation';
 
@@ -32,9 +33,13 @@ interface Props {
 export const App: React.FC<Props> = ({ children }) => {
   return (
     <Wrapper>
+      <Helmet
+        titleTemplate="%s | Blue Ribbon"
+        defaultTitle="Blue Ribbon"
+      ></Helmet>
       <ProgressBar />
       <Navigation />
-      <Container maxWidth={false}>{children}</Container>
+      <Container maxWidth={`xl`}>{children}</Container>
     </Wrapper>
   );
 };
