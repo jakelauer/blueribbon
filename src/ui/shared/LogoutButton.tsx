@@ -5,56 +5,58 @@ import { Link } from 'gatsby';
 import { useState } from 'react';
 
 function LogoutButton() {
-  const { isAuthenticated, logout } = useAuth0();
+	const { isAuthenticated, logout } = useAuth0();
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const open = Boolean(anchorEl);
+	const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+		setAnchorEl(event.currentTarget);
+	};
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
 
-  const onLogOut = () => {
-    logout({ returnTo: window.location.origin });
-    handleClose();
-  };
+	const onLogOut = () => {
+		logout({ returnTo: window.location.origin });
+		handleClose();
+	};
 
-  return (
-    <>
-      {isAuthenticated && (
-        <>
-          <IconButton color="primary" onClick={handleClick}>
-            <AccountCircleIcon />
-          </IconButton>
-          <Menu
-            id="demo-positioned-menu"
-            aria-labelledby="demo-positioned-button"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: `bottom`,
-              horizontal: `right`,
-            }}
-            transformOrigin={{
-              vertical: `top`,
-              horizontal: `right`,
-            }}
-          >
-            <MenuItem component={Link} to={`/account`} onClick={handleClose}>
-              My Account
-            </MenuItem>
-            <MenuItem onClick={onLogOut}>Logout</MenuItem>
-          </Menu>
-        </>
-      )}
-    </>
-  );
+	return (
+		<>
+			{isAuthenticated && (
+				<>
+					<IconButton color="primary" onClick={handleClick}>
+						<AccountCircleIcon />
+					</IconButton>
+					<Menu
+						anchorEl={anchorEl}
+						open={open}
+						onClose={handleClose}
+						anchorOrigin={{
+							vertical: `bottom`,
+							horizontal: `right`,
+						}}
+						transformOrigin={{
+							vertical: `top`,
+							horizontal: `right`,
+						}}
+					>
+						<MenuItem
+							component={Link}
+							to={`/account`}
+							onClick={handleClose}
+						>
+							My Account
+						</MenuItem>
+						<MenuItem onClick={onLogOut}>Logout</MenuItem>
+					</Menu>
+				</>
+			)}
+		</>
+	);
 }
 
 export default LogoutButton;
