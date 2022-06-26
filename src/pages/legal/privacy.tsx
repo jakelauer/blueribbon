@@ -1,3 +1,5 @@
+/* eslint-disable no-irregular-whitespace */
+
 const Privacy = () => {
 	return (
 		<div
