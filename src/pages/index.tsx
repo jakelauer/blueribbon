@@ -1,4 +1,4 @@
-import Page from '@/components/Page';
+import Page from '@/ui/components/Page';
 import React from 'react';
 
 interface Props {

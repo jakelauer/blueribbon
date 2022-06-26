@@ -1,7 +1,8 @@
-import React from 'react';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { navigate } from 'gatsby';
-import {App} from "./src/shared/App"
+import React from 'react';
+
+import { App } from './src/ui/shared/App';
 
 const onRedirectCallback = (appState) => {
   // Use Gatsby's navigate method to replace the url
@@ -22,5 +23,8 @@ export const wrapRootElement = ({ element }) => {
 };
 
 export const wrapPageElement = ({ element }) => {
+  if (element.type.name.startsWith('Error')) {
+    return element;
+  }
   return <App>{element}</App>;
 };

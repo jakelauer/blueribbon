@@ -1,4 +1,4 @@
-import Page from '@/components/Page';
+import Page from '@/ui/components/Page';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 const Account = () => {

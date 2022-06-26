@@ -1,7 +1,7 @@
 // @mui
 import { enUS, frFR, zhCN, viVN, arSD } from '@mui/material/locale';
 // components
-import { SettingsValueProps } from './components/settings/type';
+import { SettingsValueProps } from '@/ui/components/settings/type';
 
 // LAYOUT
 // ----------------------------------------------------------------------
