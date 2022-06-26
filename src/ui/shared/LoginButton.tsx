@@ -10,7 +10,7 @@ const LoginButton: React.FC = () => {
       {!isAuthenticated && (
         <Button
           variant="contained"
-          onClick={loginWithRedirect}
+          onClick={() => loginWithRedirect()}
           sx={{ marginLeft: `10px` }}
         >
           Log in
