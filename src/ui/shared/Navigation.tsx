@@ -13,23 +13,25 @@ interface LinkItem {
 export const Navigation: React.FC = () => {
   const links: LinkItem[] = [
     {
-      to: `/`,
-      label: `Home`,
+      to: `/howitworks`,
+      label: `How It Works`,
     },
     {
       to: `/events`,
       label: `Events`,
     },
     {
-      to: `/account`,
-      label: `Account`,
+      to: `/pricing`,
+      label: `Pricing`,
     },
   ];
 
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth={`xl`}>
       <Toolbar disableGutters>
-        <img height={60} src={logo} alt="Show Ribbon" />
+        <Link to="/">
+          <img height={60} src={logo} alt="Show Ribbon" />
+        </Link>
 
         <Box
           sx={{
@@ -44,7 +46,7 @@ export const Navigation: React.FC = () => {
               key={i}
               component={Link}
               to={link.to}
-              sx={{ my: 2, display: `block`, alignSelf: `flex-start` }}
+              sx={{ my: 2, mx: 1, display: `block`, alignSelf: `flex-start` }}
             >
               {link.label}
             </Button>
