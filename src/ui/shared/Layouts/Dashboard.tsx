@@ -24,42 +24,42 @@ import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Navigation } from './Navigation';
+import LogoutButton from '../LogoutButton';
 
 interface Props {
-  children: ReactNode;
+	children: ReactNode;
 }
 
-export const App: React.FC<Props> = ({ children }) => {
-  return (
-    <Wrapper>
-      <Helmet
-        titleTemplate="%s | Blue Ribbon"
-        defaultTitle="Blue Ribbon"
-      ></Helmet>
-      <ProgressBar />
-      <Navigation />
-      <Container maxWidth={`xl`}>{children}</Container>
-    </Wrapper>
-  );
+export const Dashboard: React.FC<Props> = ({ children }) => {
+	return (
+		<Wrapper>
+			<Helmet
+				titleTemplate="%s | Blue Ribbon"
+				defaultTitle="Blue Ribbon"
+			></Helmet>
+			<ProgressBar />
+			<LogoutButton />
+			<Container maxWidth={`xl`}>{children}</Container>
+		</Wrapper>
+	);
 };
 
 const Wrapper: React.FC<Props> = ({ children }) => {
-  const settings = getSettings(Cookies.get());
+	const settings = getSettings(Cookies.get());
 
-  return (
-    <ThemeColorPresets>
-      <ThemeContrast>
-        <ThemeRtlLayout>
-          <CollapseDrawerProvider>
-            <SettingsProvider defaultSettings={settings}>
-              <MotionLazyContainer>
-                <ThemeProvider>{children}</ThemeProvider>
-              </MotionLazyContainer>
-            </SettingsProvider>
-          </CollapseDrawerProvider>
-        </ThemeRtlLayout>
-      </ThemeContrast>
-    </ThemeColorPresets>
-  );
+	return (
+		<ThemeColorPresets>
+			<ThemeContrast>
+				<ThemeRtlLayout>
+					<CollapseDrawerProvider>
+						<SettingsProvider defaultSettings={settings}>
+							<MotionLazyContainer>
+								<ThemeProvider>{children}</ThemeProvider>
+							</MotionLazyContainer>
+						</SettingsProvider>
+					</CollapseDrawerProvider>
+				</ThemeRtlLayout>
+			</ThemeContrast>
+		</ThemeColorPresets>
+	);
 };

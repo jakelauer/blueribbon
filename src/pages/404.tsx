@@ -1,7 +1,11 @@
+import { App } from '@/ui/shared/Layouts/App';
+
 export default function ErrorNotFound() {
-  return (
-    <main>
-      <p>Sorry, page not found!</p>
-    </main>
-  );
+	return (
+		<App>
+			<main>
+				<p>Sorry, page not found!</p>
+			</main>
+		</App>
+	);
 }
