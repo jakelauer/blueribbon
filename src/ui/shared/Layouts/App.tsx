@@ -19,47 +19,60 @@ import { CollapseDrawerProvider } from '@/ui/contexts/CollapseDrawerContext';
 import { SettingsProvider } from '@/ui/contexts/SettingsContext';
 import ThemeProvider from '@/ui/theme';
 import { getSettings } from '@/ui/utils/getSettings';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Container } from '@mui/material';
+import { navigate } from 'gatsby';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Navigation } from './Navigation';
+import { AppNavigation } from './AppNavigation';
 
 interface Props {
-  children: ReactNode;
+	children: ReactNode;
 }
 
 export const App: React.FC<Props> = ({ children }) => {
-  return (
-    <Wrapper>
-      <Helmet
-        titleTemplate="%s | Blue Ribbon"
-        defaultTitle="Blue Ribbon"
-      ></Helmet>
-      <ProgressBar />
-      <Navigation />
-      <Container maxWidth={`xl`}>{children}</Container>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<Helmet
+				titleTemplate="%s | Blue Ribbon"
+				defaultTitle="Blue Ribbon"
+			></Helmet>
+			<ProgressBar />
+			<AppNavigation />
+			<Container maxWidth={`xl`}>{children}</Container>
+		</Wrapper>
+	);
 };
 
 const Wrapper: React.FC<Props> = ({ children }) => {
-  const settings = getSettings(Cookies.get());
+	const settings = getSettings(Cookies.get());
 
-  return (
-    <ThemeColorPresets>
-      <ThemeContrast>
-        <ThemeRtlLayout>
-          <CollapseDrawerProvider>
-            <SettingsProvider defaultSettings={settings}>
-              <MotionLazyContainer>
-                <ThemeProvider>{children}</ThemeProvider>
-              </MotionLazyContainer>
-            </SettingsProvider>
-          </CollapseDrawerProvider>
-        </ThemeRtlLayout>
-      </ThemeContrast>
-    </ThemeColorPresets>
-  );
+	return (
+		<ThemeColorPresets>
+			<ThemeContrast>
+				<ThemeRtlLayout>
+					<CollapseDrawerProvider>
+						<SettingsProvider defaultSettings={settings}>
+							<MotionLazyContainer>
+								<AuthRedirect />
+								<ThemeProvider>{children}</ThemeProvider>
+							</MotionLazyContainer>
+						</SettingsProvider>
+					</CollapseDrawerProvider>
+				</ThemeRtlLayout>
+			</ThemeContrast>
+		</ThemeColorPresets>
+	);
+};
+
+const AuthRedirect = () => {
+	const { isAuthenticated } = useAuth0();
+
+	if (isAuthenticated) {
+		navigate(`/dashboard`);
+	}
+
+	return null;
 };

@@ -1,14 +1,15 @@
 // @mui
+import { Box, List, ListSubheader } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { List, Box, ListSubheader } from '@mui/material';
-// type
+
 import { NavSectionProps } from '../type';
-//
 import { NavListRoot } from './NavList';
 
+// type
+//
 // ----------------------------------------------------------------------
 
-export const ListSubheaderStyle = styled((props) => (
+export const ListSubheaderStyle = styled((props: {children: any}) => (
   <ListSubheader disableSticky disableGutters {...props} />
 ))(({ theme }) => ({
   ...theme.typography.overline,

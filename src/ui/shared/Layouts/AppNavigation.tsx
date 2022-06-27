@@ -1,22 +1,15 @@
 import logo from '@/static/logo_small.png';
+import useResponsive from '@/ui/hooks/useResponsive';
 import EventIcon from '@mui/icons-material/Event';
 import FeedIcon from '@mui/icons-material/Feed';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import MenuIcon from '@mui/icons-material/Menu';
-import {
-	Box,
-	Button,
-	Container,
-	Drawer,
-	IconButton,
-	Toolbar,
-} from '@mui/material';
+import { Box, Button, Container, Drawer, IconButton, Toolbar } from '@mui/material';
 import { Link } from 'gatsby';
 import { ReactNode, useState } from 'react';
 
-import useResponsive from '../hooks/useResponsive';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+import LoginButton from '../LoginButton';
+import LogoutButton from '../LogoutButton';
 
 interface LinkItem {
 	to: string;
@@ -24,7 +17,7 @@ interface LinkItem {
 	icon?: ReactNode;
 }
 
-export const Navigation: React.FC = () => {
+export const AppNavigation: React.FC = () => {
 	const isDesktop = useResponsive(`up`, `md`);
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -86,7 +79,7 @@ const Contents = () => {
 
 	const links: LinkItem[] = [
 		{
-			to: `/howitworks`,
+			to: `/how-it-works`,
 			label: `How It Works`,
 			icon: <FeedIcon />,
 		},

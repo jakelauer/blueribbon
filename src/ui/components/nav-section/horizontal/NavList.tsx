@@ -1,11 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
-// type
+import { useLocation } from '@reach/router';
+import { useEffect, useRef, useState } from 'react';
+
+import { getActive } from '..';
 import { NavListProps } from '../type';
-//
 import { NavItemRoot, NavItemSub } from './NavItem';
 import { PaperStyle } from './style';
-import { getActive } from '..';
 
+// type
+//
 // ----------------------------------------------------------------------
 
 type NavListRootProps = {
@@ -15,12 +17,9 @@ type NavListRootProps = {
 export function NavListRoot({ list }: NavListRootProps) {
   const menuRef = useRef(null);
 
-  const { pathname, asPath } = {
-    pathname: window.location.pathname,
-    asPath: ``,
-  }; // useRouter();
+  const { pathname } = useLocation();
 
-  const active = getActive(list.path, pathname, asPath);
+  const active = getActive(list.path, pathname);
 
   const [open, setOpen] = useState(false);
 
@@ -83,12 +82,9 @@ type NavListSubProps = {
 function NavListSub({ list }: NavListSubProps) {
   const menuRef = useRef(null);
 
-  const { pathname, asPath } = {
-    pathname: window.location.pathname,
-    asPath: ``,
-  }; // useRouter();
+  const { pathname } = useLocation();
 
-  const active = getActive(list.path, pathname, asPath);
+  const active = getActive(list.path, pathname);
 
   const [open, setOpen] = useState(false);
 

@@ -7,11 +7,10 @@ export function isExternalLink(path: string) {
   return path.includes(`http`);
 }
 
-export function getActive(path: string, pathname: string, asPath: string) {
+export function getActive(path: string, pathname: string) {
   const checkPath = path.startsWith(`#`);
 
   return (
-    (!checkPath && pathname.includes(path)) ||
-    (!checkPath && asPath.includes(path))
+    (!checkPath && pathname.includes(path))
   );
 }
