@@ -36,7 +36,7 @@ export const App: React.FC<Props> = ({ children }) => {
 	return (
 		<Wrapper>
 			<Helmet
-				titleTemplate="%s | Blue Ribbon"
+				titleTemplate="%s | Blue Ribbon!"
 				defaultTitle="Blue Ribbon"
 			></Helmet>
 			<ProgressBar />
