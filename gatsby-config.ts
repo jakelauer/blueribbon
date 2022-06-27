@@ -5,14 +5,14 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-console.log("Env: " + process.env.NODE_ENV);
-
 const mongoDbConnectionString = `mongodb+srv://${encodeURIComponent(mongo_atlas_username)}:${encodeURIComponent(mongo_atlas_password)}@showribbon-test.gwiyu.mongodb.net`;
 
 const config: GatsbyConfig = {
   // Since `gatsby-plugin-typescript` is automatically included in Gatsby you
   // don't need to define it here (just if you need to change the options)
   plugins: [
+	`gatsby-plugin-material-ui`,
+	'gatsby-plugin-styled-components',
 	"gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-graphql-codegen",

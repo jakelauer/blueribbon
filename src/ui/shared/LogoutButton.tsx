@@ -20,7 +20,7 @@ function LogoutButton() {
 	};
 
 	const onLogOut = () => {
-		logout({ returnTo: window.location.origin });
+		logout({ returnTo: window?.location?.origin ?? "/" });
 		handleClose();
 	};
 

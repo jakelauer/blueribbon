@@ -1,4 +1,5 @@
 import { Dashboard } from '@/ui/shared/Layouts/Dashboard';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 const index = () => {
 	return (
@@ -8,4 +9,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default withAuthenticationRequired(index);

@@ -73,3 +73,13 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 		</ThemeColorPresets>
 	);
 };
+
+const AuthRedirect = () => {
+	const { isAuthenticated } = useAuth0();
+
+	if (isAuthenticated) {
+		navigate(`/dashboard`);
+	}
+
+	return null;
+}

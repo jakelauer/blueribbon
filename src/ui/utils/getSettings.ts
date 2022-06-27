@@ -4,44 +4,49 @@ import { cookiesKey, defaultSettings } from '../../config';
 // ----------------------------------------------------------------------
 
 export const getSettings = (cookies: any) => {
-  const themeMode =
-    getData(cookies[cookiesKey.themeMode]) || defaultSettings.themeMode;
+	if(!cookies || !cookiesKey)
+	{
+		return defaultSettings;
+	}
 
-  const themeDirection =
-    getData(cookies[cookiesKey.themeDirection]) ||
-    defaultSettings.themeDirection;
+	const themeMode =
+		getData(cookies[cookiesKey.themeMode]) || defaultSettings.themeMode;
 
-  const themeColorPresets =
-    getData(cookies[cookiesKey.themeColorPresets]) ||
-    defaultSettings.themeColorPresets;
+	const themeDirection =
+		getData(cookies[cookiesKey.themeDirection]) ||
+		defaultSettings.themeDirection;
 
-  const themeLayout =
-    getData(cookies[cookiesKey.themeLayout]) || defaultSettings.themeLayout;
+	const themeColorPresets =
+		getData(cookies[cookiesKey.themeColorPresets]) ||
+		defaultSettings.themeColorPresets;
 
-  const themeContrast =
-    getData(cookies[cookiesKey.themeContrast]) || defaultSettings.themeContrast;
+	const themeLayout =
+		getData(cookies[cookiesKey.themeLayout]) || defaultSettings.themeLayout;
 
-  const themeStretch =
-    getData(cookies[cookiesKey.themeStretch]) || defaultSettings.themeStretch;
+	const themeContrast =
+		getData(cookies[cookiesKey.themeContrast]) || defaultSettings.themeContrast;
 
-  return {
-    themeMode,
-    themeLayout,
-    themeStretch,
-    themeContrast,
-    themeDirection,
-    themeColorPresets,
-  };
+	const themeStretch =
+		getData(cookies[cookiesKey.themeStretch]) || defaultSettings.themeStretch;
+
+	return {
+		themeMode,
+		themeLayout,
+		themeStretch,
+		themeContrast,
+		themeDirection,
+		themeColorPresets,
+	};
 };
 
 // ----------------------------------------------------------------------
 
 const getData = (value: string) => {
-  if (value === `true` || value === `false`) {
-    return JSON.parse(value);
-  }
-  if (value === `undefined` || !value) {
-    return ``;
-  }
-  return value;
+	if (value === `true` || value === `false`) {
+		return JSON.parse(value);
+	}
+	if (value === `undefined` || !value) {
+		return ``;
+	}
+	return value;
 };

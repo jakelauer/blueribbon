@@ -4,14 +4,7 @@ import EventIcon from '@mui/icons-material/Event';
 import FeedIcon from '@mui/icons-material/Feed';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import MenuIcon from '@mui/icons-material/Menu';
-import {
-	Box,
-	Button,
-	Container,
-	Drawer,
-	IconButton,
-	Toolbar,
-} from '@mui/material';
+import { Box, Button, Container, Drawer, IconButton, Toolbar } from '@mui/material';
 import { Link } from 'gatsby';
 import { ReactNode, useState } from 'react';
 

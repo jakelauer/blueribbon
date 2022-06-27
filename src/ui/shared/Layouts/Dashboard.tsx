@@ -19,12 +19,13 @@ import { CollapseDrawerProvider } from '@/ui/contexts/CollapseDrawerContext';
 import { SettingsProvider } from '@/ui/contexts/SettingsContext';
 import ThemeProvider from '@/ui/theme';
 import { getSettings } from '@/ui/utils/getSettings';
-import { Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 
 import LogoutButton from '../LogoutButton';
+import { DashboardNavigation } from './DashboardNavigation';
 
 interface Props {
 	children: ReactNode;
@@ -39,7 +40,16 @@ export const Dashboard: React.FC<Props> = ({ children }) => {
 			></Helmet>
 			<ProgressBar />
 			<LogoutButton />
-			<Container maxWidth={`xl`}>{children}</Container>
+			<Container maxWidth={`xl`}>
+				<Grid container spacing={3}>
+					<Grid item xs={2}>
+						<DashboardNavigation />
+					</Grid>
+					<Grid item xs={10}>
+						{children}
+					</Grid>
+				</Grid>
+			</Container>
 		</Wrapper>
 	);
 };
