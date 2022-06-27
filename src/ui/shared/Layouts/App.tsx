@@ -47,14 +47,6 @@ export const App: React.FC<Props> = ({ children }) => {
 };
 
 const Wrapper: React.FC<Props> = ({ children }) => {
-	const { isAuthenticated } = useAuth0();
-
-	if (isAuthenticated) {
-		navigate(`/dashboard`);
-
-		return null;
-	}
-
 	const settings = getSettings(Cookies.get());
 
 	return (
@@ -64,6 +56,7 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 					<CollapseDrawerProvider>
 						<SettingsProvider defaultSettings={settings}>
 							<MotionLazyContainer>
+								<AuthRedirect />
 								<ThemeProvider>{children}</ThemeProvider>
 							</MotionLazyContainer>
 						</SettingsProvider>
@@ -82,4 +75,4 @@ const AuthRedirect = () => {
 	}
 
 	return null;
-}
+};
