@@ -17,39 +17,30 @@ import ThemeContrast from '@/ui/components/settings/ThemeContrast';
 import ThemeRtlLayout from '@/ui/components/settings/ThemeRtlLayout';
 import { CollapseDrawerProvider } from '@/ui/contexts/CollapseDrawerContext';
 import { SettingsProvider } from '@/ui/contexts/SettingsContext';
+import { AppNavigation } from '@/ui/shared/Layouts/AppNavigation';
 import ThemeProvider from '@/ui/theme';
 import { getSettings } from '@/ui/utils/getSettings';
-import { Container, Grid } from '@mui/material';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Container } from '@mui/material';
+import { navigate } from 'gatsby';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-
-import LogoutButton from '../LogoutButton';
-import { DashboardNavigation } from './DashboardNavigation';
 
 interface Props {
 	children: ReactNode;
 }
 
-export const Dashboard: React.FC<Props> = ({ children }) => {
+export const AppLayout: React.FC<Props> = ({ children }) => {
 	return (
 		<Wrapper>
 			<Helmet
-				titleTemplate="%s | Blue Ribbon"
+				titleTemplate="%s | Blue Ribbon!"
 				defaultTitle="Blue Ribbon"
 			></Helmet>
 			<ProgressBar />
-			<LogoutButton />
-			<Container maxWidth={`xl`}>
-				<Grid container spacing={3}>
-					<Grid item xs={2}>
-						<DashboardNavigation />
-					</Grid>
-					<Grid item xs={10}>
-						{children}
-					</Grid>
-				</Grid>
-			</Container>
+			<AppNavigation />
+			<Container maxWidth={`xl`}>{children}</Container>
 		</Wrapper>
 	);
 };
@@ -64,6 +55,7 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 					<CollapseDrawerProvider>
 						<SettingsProvider defaultSettings={settings}>
 							<MotionLazyContainer>
+								<AuthRedirect />
 								<ThemeProvider>{children}</ThemeProvider>
 							</MotionLazyContainer>
 						</SettingsProvider>
@@ -72,4 +64,14 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 			</ThemeContrast>
 		</ThemeColorPresets>
 	);
+};
+
+const AuthRedirect = () => {
+	const { isAuthenticated } = useAuth0();
+
+	if (isAuthenticated) {
+		navigate(`/dashboard`);
+	}
+
+	return null;
 };

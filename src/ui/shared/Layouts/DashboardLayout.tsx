@@ -17,11 +17,10 @@ import ThemeContrast from '@/ui/components/settings/ThemeContrast';
 import ThemeRtlLayout from '@/ui/components/settings/ThemeRtlLayout';
 import { CollapseDrawerProvider } from '@/ui/contexts/CollapseDrawerContext';
 import { SettingsProvider } from '@/ui/contexts/SettingsContext';
+import { DashboardNavigation } from '@/ui/shared/Layouts/DashboardNavigation';
 import ThemeProvider from '@/ui/theme';
 import { getSettings } from '@/ui/utils/getSettings';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Container } from '@mui/material';
-import { navigate } from 'gatsby';
+import { Container, GlobalStyles, Grid } from '@mui/material';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
@@ -32,16 +31,26 @@ interface Props {
 	children: ReactNode;
 }
 
-export const App: React.FC<Props> = ({ children }) => {
+export const DashboardLayout: React.FC<Props> = ({ children }) => {
 	return (
 		<Wrapper>
+			<GlobalStyles styles={{ a: { textDecoration: `none` } }} />
 			<Helmet
-				titleTemplate="%s | Blue Ribbon!"
+				titleTemplate="%s | Blue Ribbon"
 				defaultTitle="Blue Ribbon"
 			></Helmet>
 			<ProgressBar />
-			<AppNavigation />
-			<Container maxWidth={`xl`}>{children}</Container>
+			<AppNavigation menuOverride={null} />
+			<Container maxWidth={`xl`}>
+				<Grid container spacing={3}>
+					<Grid item xs={3}>
+						<DashboardNavigation />
+					</Grid>
+					<Grid item xs={9}>
+						{children}
+					</Grid>
+				</Grid>
+			</Container>
 		</Wrapper>
 	);
 };
@@ -56,7 +65,6 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 					<CollapseDrawerProvider>
 						<SettingsProvider defaultSettings={settings}>
 							<MotionLazyContainer>
-								<AuthRedirect />
 								<ThemeProvider>{children}</ThemeProvider>
 							</MotionLazyContainer>
 						</SettingsProvider>
@@ -65,14 +73,4 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 			</ThemeContrast>
 		</ThemeColorPresets>
 	);
-};
-
-const AuthRedirect = () => {
-	const { isAuthenticated } = useAuth0();
-
-	if (isAuthenticated) {
-		navigate(`/dashboard`);
-	}
-
-	return null;
 };

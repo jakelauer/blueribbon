@@ -1,11 +1,11 @@
-import { Dashboard } from '@/ui/shared/Layouts/Dashboard';
+import { DashboardLayout } from '@/ui/shared/Layouts/DashboardLayout';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 const index = () => {
 	return (
-		<Dashboard>
+		<DashboardLayout>
 			<div />
-		</Dashboard>
+		</DashboardLayout>
 	);
 };
 
