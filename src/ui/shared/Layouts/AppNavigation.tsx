@@ -4,12 +4,19 @@ import EventIcon from '@mui/icons-material/Event';
 import FeedIcon from '@mui/icons-material/Feed';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Box, Button, Container, Drawer, IconButton, Toolbar } from '@mui/material';
+import {
+	Box,
+	Button,
+	Container,
+	Drawer,
+	IconButton,
+	Toolbar,
+} from '@mui/material';
 import { Link } from 'gatsby';
 import { ReactNode, useState } from 'react';
 
+import AccountMenu from '../AccountMenu';
 import LoginButton from '../LoginButton';
-import LogoutButton from '../LogoutButton';
 
 interface LinkItem {
 	to: string;
@@ -17,7 +24,11 @@ interface LinkItem {
 	icon?: ReactNode;
 }
 
-export const AppNavigation: React.FC = () => {
+interface Props {
+	menuOverride?: ReactNode;
+}
+
+export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
 	const isDesktop = useResponsive(`up`, `md`);
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -50,11 +61,11 @@ export const AppNavigation: React.FC = () => {
 							<MenuIcon />
 						</IconButton>
 						<LoginButton />
-						<LogoutButton />
+						<AccountMenu />
 					</Box>
 				)}
 
-				{isDesktop && <Contents />}
+				{isDesktop && <Contents menuOverride={menuOverride} />}
 				{!isDesktop && (
 					<Drawer
 						anchor={`right`}
@@ -66,7 +77,7 @@ export const AppNavigation: React.FC = () => {
 							},
 						}}
 					>
-						<Contents />
+						<Contents menuOverride={menuOverride} />
 					</Drawer>
 				)}
 			</Toolbar>
@@ -74,8 +85,10 @@ export const AppNavigation: React.FC = () => {
 	);
 };
 
-const Contents = () => {
+const Contents: React.FC<Props> = ({ menuOverride }) => {
 	const isDesktop = useResponsive(`up`, `md`);
+
+	const override = menuOverride !== undefined;
 
 	const links: LinkItem[] = [
 		{
@@ -104,28 +117,29 @@ const Contents = () => {
 				alignItems: `center`,
 			}}
 		>
-			{links.map((link, i) => (
-				<Button
-					key={i}
-					component={Link}
-					to={link.to}
-					startIcon={link.icon}
-					sx={{
-						display: `flex`,
-						my: 2,
-						mx: 1,
-						alignSelf: `flex-start`,
-						justifyContent: `flex-start`,
-					}}
-				>
-					{link.label}
-				</Button>
-			))}
+			{!override &&
+				links.map((link, i) => (
+					<Button
+						key={i}
+						component={Link}
+						to={link.to}
+						startIcon={link.icon}
+						sx={{
+							display: `flex`,
+							my: 2,
+							mx: 1,
+							alignSelf: `flex-start`,
+							justifyContent: `flex-start`,
+						}}
+					>
+						{link.label}
+					</Button>
+				))}
 
 			{isDesktop && (
 				<>
 					<LoginButton />
-					<LogoutButton />
+					<AccountMenu />
 				</>
 			)}
 		</Box>

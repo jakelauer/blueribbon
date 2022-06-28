@@ -4,8 +4,10 @@ import { IconButton, Menu, MenuItem } from '@mui/material';
 import { Link } from 'gatsby';
 import { useState } from 'react';
 
-function LogoutButton() {
-	const { isAuthenticated, logout } = useAuth0();
+interface Props {}
+
+const AccountMenu: React.FC<Props> = () => {
+	const { isAuthenticated } = useAuth0();
 
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -17,11 +19,6 @@ function LogoutButton() {
 
 	const handleClose = () => {
 		setAnchorEl(null);
-	};
-
-	const onLogOut = () => {
-		logout({ returnTo: window?.location?.origin ?? "/" });
-		handleClose();
 	};
 
 	return (
@@ -44,19 +41,33 @@ function LogoutButton() {
 							horizontal: `right`,
 						}}
 					>
-						<MenuItem
-							component={Link}
-							to={`/account`}
-							onClick={handleClose}
-						>
-							My Account
-						</MenuItem>
-						<MenuItem onClick={onLogOut}>Logout</MenuItem>
+						<AccountMenuItems onClose={handleClose} />
 					</Menu>
 				</>
 			)}
 		</>
 	);
+};
+
+interface MenuItemProps {
+	onClose?: () => void;
 }
 
-export default LogoutButton;
+export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
+	const { logout } = useAuth0();
+
+	const onLogOut = () => {
+		logout({ returnTo: window?.location?.origin ?? `/` });
+		onClose?.();
+	};
+	return (
+		<>
+			<MenuItem component={Link} to={`/account`} onClick={onClose}>
+				My Account
+			</MenuItem>
+			<MenuItem onClick={onLogOut}>Logout</MenuItem>
+		</>
+	);
+};
+
+export default AccountMenu;

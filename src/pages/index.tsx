@@ -1,5 +1,4 @@
-import Page from '@/ui/components/Page';
-import { App } from '@/ui/shared/Layouts/App';
+import AppPage from '@/ui/components/AppPage';
 import React from 'react';
 
 interface Props {
@@ -8,11 +7,9 @@ interface Props {
 
 const Index: React.FC<Props> = () => {
 	return (
-		<App>
-			<Page title="Home">
-				<div></div>
-			</Page>
-		</App>
+		<AppPage title="Home">
+			<div></div>
+		</AppPage>
 	);
 };
 

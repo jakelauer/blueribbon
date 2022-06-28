@@ -1,14 +1,14 @@
-import Page from '@/ui/components/Page';
+import DashboardPage from '@/ui/components/DashboardPage';
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 
 const Account = () => {
-  const { user } = useAuth0();
+	const { user } = useAuth0();
 
-  return (
-    <Page title="Account">
-      <p>Email: {user?.email}</p>
-    </Page>
-  );
+	return (
+		<DashboardPage title="Account">
+			<p>Email: {user?.email}</p>
+		</DashboardPage>
+	);
 };
 
 export default withAuthenticationRequired(Account);
