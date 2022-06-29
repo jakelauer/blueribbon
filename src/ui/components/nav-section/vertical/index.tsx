@@ -40,7 +40,7 @@ export default function NavSectionVertical({
 			}}
 		>
 			{navConfig.map((group) => (
-				<List key={group.subheader} disablePadding sx={{ px: 2 }}>
+				<List key={group.subheader} disablePadding sx={{ px: 1 }}>
 					<ListSubheaderStyle
 						sx={{
 							...(isCollapse && {

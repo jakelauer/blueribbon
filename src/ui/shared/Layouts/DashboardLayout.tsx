@@ -46,7 +46,15 @@ export const DashboardLayout: React.FC<Props> = ({ children }) => {
 					<Grid item xs={3}>
 						<DashboardNavigation />
 					</Grid>
-					<Grid item xs={9}>
+					<Grid
+						item
+						xs={9}
+						sx={{
+							border: `1px solid #EEE`,
+							borderRadius: 1,
+							mt: 5,
+						}}
+					>
 						{children}
 					</Grid>
 				</Grid>

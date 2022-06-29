@@ -27,6 +27,7 @@ interface LinkItem {
 
 interface Props {
 	menuOverride?: ReactNode;
+	showBorder?: boolean;
 }
 
 export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
@@ -45,9 +46,11 @@ export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
 	return (
 		<Container maxWidth={`xl`} sx={{ my: 2 }}>
 			<Toolbar disableGutters>
-				<Link to="/">
-					<img height={60} src={logo} alt="Show Ribbon" />
-				</Link>
+				<Box sx={{ ml: 4 }}>
+					<Link to="/">
+						<img height={60} src={logo} alt="Show Ribbon" />
+					</Link>
+				</Box>
 
 				{!isDesktop && (
 					<Box
