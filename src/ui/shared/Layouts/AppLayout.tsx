@@ -20,9 +20,7 @@ import { SettingsProvider } from '@/ui/contexts/SettingsContext';
 import { AppNavigation } from '@/ui/shared/Layouts/AppNavigation';
 import ThemeProvider from '@/ui/theme';
 import { getSettings } from '@/ui/utils/getSettings';
-import { useAuth0 } from '@auth0/auth0-react';
 import { Container } from '@mui/material';
-import { navigate } from 'gatsby';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
@@ -55,7 +53,6 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 					<CollapseDrawerProvider>
 						<SettingsProvider defaultSettings={settings}>
 							<MotionLazyContainer>
-								<AuthRedirect />
 								<ThemeProvider>{children}</ThemeProvider>
 							</MotionLazyContainer>
 						</SettingsProvider>
@@ -64,14 +61,4 @@ const Wrapper: React.FC<Props> = ({ children }) => {
 			</ThemeContrast>
 		</ThemeColorPresets>
 	);
-};
-
-const AuthRedirect = () => {
-	const { isAuthenticated } = useAuth0();
-
-	if (isAuthenticated) {
-		navigate(`/dashboard`);
-	}
-
-	return null;
 };

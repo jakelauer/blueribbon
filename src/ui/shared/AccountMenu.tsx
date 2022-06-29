@@ -1,6 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LogoutIcon from '@mui/icons-material/Logout';
+import {
+	Divider,
+	IconButton,
+	ListItemIcon,
+	ListItemText,
+	Menu,
+	MenuItem,
+} from '@mui/material';
 import { Link } from 'gatsby';
 import { useState } from 'react';
 
@@ -52,7 +61,6 @@ const AccountMenu: React.FC<Props> = () => {
 interface MenuItemProps {
 	onClose?: () => void;
 }
-
 export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
 	const { logout } = useAuth0();
 
@@ -62,10 +70,26 @@ export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
 	};
 	return (
 		<>
-			<MenuItem component={Link} to={`/account`} onClick={onClose}>
-				My Account
+			<MenuItem component={Link} to={`/dashboard`} onClick={onClose}>
+				<ListItemIcon>
+					<DashboardIcon />
+				</ListItemIcon>
+				<ListItemText>Club Dashboard</ListItemText>
 			</MenuItem>
-			<MenuItem onClick={onLogOut}>Logout</MenuItem>
+			<Divider />
+			<MenuItem component={Link} to={`/account`} onClick={onClose}>
+				<ListItemIcon>
+					<AccountCircleIcon />
+				</ListItemIcon>
+				<ListItemText>My Account</ListItemText>
+			</MenuItem>
+			<Divider />
+			<MenuItem onClick={onLogOut}>
+				<ListItemIcon>
+					<LogoutIcon />
+				</ListItemIcon>
+				<ListItemText>Logout</ListItemText>
+			</MenuItem>
 		</>
 	);
 };
