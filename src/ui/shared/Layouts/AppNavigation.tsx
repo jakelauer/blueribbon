@@ -8,6 +8,7 @@ import {
 	Box,
 	Button,
 	Container,
+	Divider,
 	Drawer,
 	IconButton,
 	Toolbar,
@@ -16,7 +17,7 @@ import { Link } from 'gatsby';
 import { ReactNode, useState } from 'react';
 
 import AccountMenu from '../AccountMenu';
-import LoginButton from '../LoginButton';
+import { GetStartedButton, LoginButton } from '../LoginButton';
 
 interface LinkItem {
 	to: string;
@@ -60,7 +61,7 @@ export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
 						<IconButton onClick={handleClick}>
 							<MenuIcon />
 						</IconButton>
-						<LoginButton />
+						<GetStartedButton />
 						<AccountMenu />
 					</Box>
 				)}
@@ -138,7 +139,9 @@ const Contents: React.FC<Props> = ({ menuOverride }) => {
 
 			{isDesktop && (
 				<>
+					<Divider orientation="vertical" />
 					<LoginButton />
+					<GetStartedButton />
 					<AccountMenu />
 				</>
 			)}
