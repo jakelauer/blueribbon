@@ -10,7 +10,11 @@ export const GetStartedButton: React.FC = () => {
 			{!isAuthenticated && (
 				<Button
 					variant="contained"
-					onClick={() => loginWithRedirect()}
+					onClick={() =>
+						loginWithRedirect({
+							redirect_uri: process.env.GATSBY_AUTH0_CALLBACK_URL,
+						})
+					}
 					sx={{ marginLeft: `10px` }}
 				>
 					Get Started

@@ -1,5 +1,5 @@
 import { DashboardLayout } from '@/ui/shared/Layouts/DashboardLayout';
-import { Box, BoxProps, Typography } from '@mui/material';
+import { Box, BoxProps } from '@mui/material';
 import { forwardRef, ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -19,9 +19,6 @@ const DashboardPage = forwardRef<HTMLDivElement, Props>(
 				<title>{title}</title>
 			</Helmet>
 			<DashboardLayout>
-				<Typography variant={`h3`} component={`h1`}>
-					{title}
-				</Typography>
 				<Box ref={ref} {...other}>
 					{children}
 				</Box>

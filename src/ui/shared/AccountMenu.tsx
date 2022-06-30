@@ -61,6 +61,7 @@ const AccountMenu: React.FC<Props> = () => {
 interface MenuItemProps {
 	onClose?: () => void;
 }
+
 export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
 	const { logout } = useAuth0();
 
