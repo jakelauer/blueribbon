@@ -13,7 +13,7 @@ const typography = {
 	h1: {
 		fontFamily: `macho, sans-serif`,
 		fontStyle: `italic`,
-		fontWeight: 700,
+		fontWeight: 900,
 		lineHeight: 80 / 64,
 		fontSize: pxToRem(40),
 		letterSpacing: 2,

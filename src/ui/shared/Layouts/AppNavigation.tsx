@@ -46,7 +46,7 @@ export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
 	return (
 		<Container maxWidth={`xl`} sx={{ my: 2 }}>
 			<Toolbar disableGutters>
-				<Box sx={{ ml: 4 }}>
+				<Box>
 					<Link to="/">
 						<img height={60} src={logo} alt="Show Ribbon" />
 					</Link>

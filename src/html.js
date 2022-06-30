@@ -36,6 +36,11 @@ export default function HTML(props) {
 					rel="stylesheet"
 					href="https://use.typekit.net/kkh4tyi.css"
 				></link>
+				<script
+					src="https://cdn.skypack.dev/pseudo-mask"
+					type="module"
+					async
+				></script>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
