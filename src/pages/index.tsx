@@ -43,9 +43,6 @@ const Index: React.FC<Props> = () => {
 		>
 			The best entry system for competitions.
 			<br />
-			<span style={{ fontStyle: `normal`, filter: `saturate(0)` }}>
-				🏆
-			</span>
 			<br />
 			Absolutely free.
 		</Typography>
