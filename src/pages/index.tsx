@@ -1,3 +1,8 @@
+import bg1 from '@/static/bg_1.webm';
+import bg2 from '@/static/bg_2.webm';
+import bg3 from '@/static/bg_3.webm';
+import bg4 from '@/static/bg_4.webm';
+import bg5 from '@/static/bg_5.webm';
 import squareLogo from '@/static/logo_square_large.png';
 import AppPage from '@/ui/components/AppPage';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -13,8 +18,11 @@ const Index: React.FC<Props> = () => {
 	const [videoIndex, setVideoIndex] = useState(0);
 
 	useEffect(() => {
-		setVideoIndex(Math.ceil(Math.random() * 5));
+		setVideoIndex(Math.floor(Math.random() * 5));
 	}, []);
+
+	const videoSources = [bg1, bg2, bg3, bg4, bg5];
+	const video = videoSources[videoIndex];
 
 	const Text = (props: { sx?: SxProps<Theme> }) => (
 		<Typography
@@ -62,7 +70,7 @@ const Index: React.FC<Props> = () => {
 							objectFit: `cover`,
 							filter: `brightness(0.9) invert(1)`,
 						}}
-						src={`/bg_${videoIndex}.webm`}
+						src={video}
 						autoPlay
 						loop
 						muted
