@@ -20,7 +20,7 @@ import { SettingsProvider } from '@/ui/contexts/SettingsContext';
 import { DashboardNavigation } from '@/ui/shared/Layouts/DashboardNavigation';
 import ThemeProvider from '@/ui/theme';
 import { getSettings } from '@/ui/utils/getSettings';
-import { Container, GlobalStyles, Grid } from '@mui/material';
+import { Container, GlobalStyles, Grid, Paper } from '@mui/material';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
@@ -42,17 +42,17 @@ export const DashboardLayout: React.FC<Props> = ({ children }) => {
 			<ProgressBar />
 			<AppNavigation menuOverride={null} />
 			<Container maxWidth={`xl`}>
-				<Grid container spacing={3}>
+				<Grid container spacing={2}>
 					<Grid item xs={3}>
-						<DashboardNavigation />
+						<Paper elevation={5} sx={{ borderRadius: 3 }}>
+							<DashboardNavigation />
+						</Paper>
 					</Grid>
 					<Grid
 						item
 						xs={9}
 						sx={{
-							border: `1px solid #EEE`,
-							borderRadius: 1,
-							mt: 5,
+							mt: 2,
 						}}
 					>
 						{children}
