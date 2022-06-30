@@ -2,14 +2,18 @@ import AppPage from '@/ui/components/AppPage';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Box, Typography } from '@mui/material';
 import { navigate } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
 	data: any;
 }
 
 const Index: React.FC<Props> = () => {
-	const [videoIndex] = useState(Math.ceil(Math.random() * 7));
+	const [videoIndex, setVideoIndex] = useState(0);
+
+	useEffect(() => {
+		setVideoIndex(Math.ceil(Math.random() * 7));
+	}, []);
 
 	return (
 		<AppPage title="Home">
@@ -19,21 +23,23 @@ const Index: React.FC<Props> = () => {
 					position: `relative`,
 				}}
 			>
-				<video
-					style={{
-						position: `absolute`,
-						top: 1,
-						left: 1,
-						width: `99%`,
-						height: `99%`,
-						objectFit: `cover`,
-						filter: `brightness(0.9)`,
-					}}
-					src={`/bg_${videoIndex}.webm`}
-					autoPlay
-					loop
-					muted
-				/>
+				{videoIndex > 0 && (
+					<video
+						style={{
+							position: `absolute`,
+							top: 1,
+							left: 1,
+							width: `99%`,
+							height: `99%`,
+							objectFit: `cover`,
+							filter: `brightness(0.9)`,
+						}}
+						src={`/bg_${videoIndex}.webm`}
+						autoPlay
+						loop
+						muted
+					/>
+				)}
 
 				<Typography
 					variant="h1"
