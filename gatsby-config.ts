@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
 	`gatsby-plugin-material-ui`,
 	'gatsby-plugin-styled-components',
 	"gatsby-plugin-react-helmet",
+    `gatsby-plugin-image`,
     {
       resolve: "gatsby-plugin-graphql-codegen",
       options: {
@@ -37,6 +38,15 @@ const config: GatsbyConfig = {
         }
       }
     },
+	{
+		resolve: "gatsby-source-contentful",
+		options: {
+			spaceId: process.env.CONTENTFUL_SPACE_ID,
+			// Learn about environment variables: https://gatsby.dev/env-vars
+			accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+			host: `preview.contentful.com`,
+		}
+	},
   ],
   jsxRuntime: `automatic`,
 };
