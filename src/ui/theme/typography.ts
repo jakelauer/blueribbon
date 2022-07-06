@@ -2,7 +2,7 @@ import { pxToRem, responsiveFontSizes } from '@/ui/utils/getFontValue';
 
 // ----------------------------------------------------------------------
 
-const FONT_PRIMARY = `Public Sans, sans-serif`; // Google Font
+const FONT_PRIMARY = `myriad-pro, sans-serif`; // Google Font
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
 const typography = {
@@ -11,8 +11,6 @@ const typography = {
 	fontWeightMedium: 600,
 	fontWeightBold: 700,
 	h1: {
-		fontFamily: `macho, sans-serif`,
-		fontStyle: `italic`,
 		fontWeight: 900,
 		lineHeight: 80 / 64,
 		fontSize: pxToRem(40),
