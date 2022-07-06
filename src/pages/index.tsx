@@ -1,56 +1,70 @@
-import bg1 from '@/static/bg_1.webm';
-import bg2 from '@/static/bg_2.webm';
-import bg3 from '@/static/bg_3.webm';
-import bg4 from '@/static/bg_4.webm';
-import bg5 from '@/static/bg_5.webm';
+import { renderRichText } from '@/render-rich-text';
 import squareLogo from '@/static/logo_square_large.png';
 import AppPage from '@/ui/components/AppPage';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Box, SxProps, Theme, Typography } from '@mui/material';
-import { navigate } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
+import { HomeDataQuery } from '../../graphql-types';
+
 interface Props {
-	data: any;
+	data: HomeDataQuery;
 }
 
-const Index: React.FC<Props> = () => {
+const Index: React.FC<Props> = ({ data }) => {
 	const [videoIndex, setVideoIndex] = useState(0);
 
+	const videos =
+		data?.contentfulHomePage?.backgroundVideos?.map((a) => a?.publicUrl) ??
+		[];
+
 	useEffect(() => {
-		setVideoIndex(Math.floor(Math.random() * 5));
-	}, []);
+		setVideoIndex(Math.floor(Math.random() * videos.length));
+	}, [videos.length]);
 
-	const videoSources = [bg1, bg2, bg3, bg4, bg5];
-	const video = videoSources[videoIndex];
+	const video = videos[videoIndex];
 
-	const Text = (props: { sx?: SxProps<Theme> }) => (
-		<Typography
-			variant="h1"
-			sx={{
-				position: `relative`,
-				background: `white`,
-				zIndex: 2,
-				textAlign: `center`,
-				fontSize: {
-					xs: `4rem !important`,
-					md: `7rem !important`,
-				},
-				pt: 10,
-				pb: 15,
-				...(props.sx ?? {}),
-			}}
-		>
-			The best entry system for competitions.
-			<br />
-			<br />
-			Absolutely free.
-		</Typography>
-	);
+	const VideoText = (props: { sx?: SxProps<Theme> }) =>
+		data.contentfulHomePage?.hero ? (
+			<Typography
+				variant="h1"
+				sx={{
+					position: `relative`,
+					background: `white`,
+					zIndex: 2,
+					textAlign: `center`,
+					fontSize: {
+						xs: `5rem !important`,
+						md: `9rem !important`,
+					},
+					pt: 10,
+					pb: 15,
+					...(props.sx ?? {}),
+				}}
+			>
+				{renderRichText(data.contentfulHomePage?.hero)}
+			</Typography>
+		) : null;
 
 	return (
 		<AppPage title="Home">
 			<AuthRedirect />
+
+			{data.contentfulHomePage?.preHero ? (
+				<Typography
+					variant="h1"
+					sx={{
+						position: `relative`,
+						fontWeight: 100,
+						zIndex: 2,
+						textAlign: `center`,
+						pt: 10,
+					}}
+				>
+					{renderRichText(data.contentfulHomePage?.preHero)}
+				</Typography>
+			) : null}
 			<Box
 				sx={{
 					position: `relative`,
@@ -73,16 +87,17 @@ const Index: React.FC<Props> = () => {
 						muted
 					/>
 				)}
-
-				<Text
+				<VideoText
 					sx={{
 						color: `black`,
 						mixBlendMode: `screen`,
 					}}
 				/>
-				<Text
+
+				<VideoText
 					sx={{
 						position: `absolute`,
+						width: `100%`,
 						top: 0,
 						left: 0,
 						color: `black`,
@@ -111,5 +126,21 @@ const AuthRedirect = () => {
 
 	return null;
 };
+
+export const query = graphql`
+	query HomeData {
+		contentfulHomePage {
+			preHero {
+				raw
+			}
+			hero {
+				raw
+			}
+			backgroundVideos {
+				publicUrl
+			}
+		}
+	}
+`;
 
 export default Index;
