@@ -35,8 +35,8 @@ const Index: React.FC<Props> = ({ data }) => {
 					zIndex: 2,
 					textAlign: `center`,
 					fontSize: {
-						xs: `5rem !important`,
-						md: `9rem !important`,
+						xs: `9rem !important`,
+						md: `14rem !important`,
 					},
 					pt: 10,
 					pb: 15,
