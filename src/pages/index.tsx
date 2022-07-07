@@ -25,6 +25,8 @@ const Index: React.FC<Props> = ({ data }) => {
 
 	const video = videos[videoIndex];
 
+	console.log(videos);
+
 	const VideoText = (props: { sx?: SxProps<Theme> }) =>
 		data.contentfulHomePage?.hero ? (
 			<Typography
@@ -35,8 +37,8 @@ const Index: React.FC<Props> = ({ data }) => {
 					zIndex: 2,
 					textAlign: `center`,
 					fontSize: {
-						xs: `9rem !important`,
-						md: `14rem !important`,
+						xs: `12rem !important`,
+						md: `18rem !important`,
 					},
 					pt: 10,
 					pb: 15,
@@ -70,14 +72,14 @@ const Index: React.FC<Props> = ({ data }) => {
 					position: `relative`,
 				}}
 			>
-				{videoIndex > 0 && (
+				{video && (
 					<video
 						style={{
 							position: `absolute`,
 							top: 1,
 							left: 1,
-							width: `99%`,
-							height: `99%`,
+							width: `calc(100% - 2px)`,
+							height: `calc(100% - 2px)`,
 							objectFit: `cover`,
 							filter: `brightness(0.9) invert(1)`,
 						}}
@@ -87,6 +89,7 @@ const Index: React.FC<Props> = ({ data }) => {
 						muted
 					/>
 				)}
+
 				<VideoText
 					sx={{
 						color: `black`,
