@@ -105,7 +105,7 @@ const Index: React.FC<Props> = ({ data }) => {
 						left: 0,
 						color: `black`,
 						mixBlendMode: `difference`,
-						textShadow: `1px 3px 3px rgba(0,0,0,0.4)`,
+						textShadow: `0.1rem 0.5rem 0.5rem rgba(0,0,0,0.4)`,
 						WebkitTextStrokeColor: `black`,
 						WebkitTextStrokeWidth: 4,
 						filter: `invert(1)`,

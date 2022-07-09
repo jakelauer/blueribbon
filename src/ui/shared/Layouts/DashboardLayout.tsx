@@ -44,7 +44,7 @@ export const DashboardLayout: React.FC<Props> = ({ children }) => {
 			<Container maxWidth={`xl`}>
 				<Grid container spacing={2}>
 					<Grid item xs={3}>
-						<Paper elevation={5} sx={{ borderRadius: 3 }}>
+						<Paper elevation={2} sx={{ borderRadius: 3 }}>
 							<DashboardNavigation />
 						</Paper>
 					</Grid>
