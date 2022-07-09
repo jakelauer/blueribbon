@@ -1,12 +1,15 @@
 import DashboardPage from '@/ui/components/DashboardPage';
-import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
+import { AutoForm } from '@/ui/shared/Forms/AutoForm';
+import { withAuthenticationRequired } from '@auth0/auth0-react';
+
+import { UserForm } from '../contracts/forms/UserForm';
+
+const form = new UserForm();
 
 const Account = () => {
-	const { user } = useAuth0();
-
 	return (
 		<DashboardPage title="Account">
-			<p>Email: {user?.email}</p>
+			<AutoForm title={`Account`} formSchema={form.getFormMetadata()} />
 		</DashboardPage>
 	);
 };

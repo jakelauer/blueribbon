@@ -142,7 +142,12 @@ const Contents: React.FC<Props> = ({ menuOverride }) => {
 
 			{isDesktop && (
 				<>
-					<Divider orientation="vertical" />
+					<Divider
+						orientation="vertical"
+						sx={{
+							height: 40,
+						}}
+					/>
 					<LoginButton />
 					<GetStartedButton />
 					<AccountMenu />
