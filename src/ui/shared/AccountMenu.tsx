@@ -1,5 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {
@@ -69,14 +70,30 @@ export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
 		logout({ returnTo: window?.location?.origin ?? `/` });
 		onClose?.();
 	};
+
+	const userOwnsClub = false;
+
 	return (
 		<>
-			<MenuItem component={Link} to={`/dashboard`} onClick={onClose}>
-				<ListItemIcon>
-					<DashboardIcon />
-				</ListItemIcon>
-				<ListItemText>Club Dashboard</ListItemText>
-			</MenuItem>
+			{userOwnsClub ? (
+				<MenuItem component={Link} to={`/club`} onClick={onClose}>
+					<ListItemIcon>
+						<DashboardIcon />
+					</ListItemIcon>
+					<ListItemText>Club Dashboard</ListItemText>
+				</MenuItem>
+			) : (
+				<MenuItem
+					component={Link}
+					to={`/club/create`}
+					onClick={onClose}
+				>
+					<ListItemIcon>
+						<AddCircleIcon />
+					</ListItemIcon>
+					<ListItemText>Create a Club</ListItemText>
+				</MenuItem>
+			)}
 			<Divider />
 			<MenuItem component={Link} to={`/account`} onClick={onClose}>
 				<ListItemIcon>

@@ -17,21 +17,19 @@ import ThemeContrast from '@/ui/components/settings/ThemeContrast';
 import ThemeRtlLayout from '@/ui/components/settings/ThemeRtlLayout';
 import { CollapseDrawerProvider } from '@/ui/contexts/CollapseDrawerContext';
 import { SettingsProvider } from '@/ui/contexts/SettingsContext';
-import { DashboardNavigation } from '@/ui/shared/Layouts/DashboardNavigation';
+import { AppNavigation } from '@/ui/shared/Layouts/AppNavigation';
 import ThemeProvider from '@/ui/theme';
 import { getSettings } from '@/ui/utils/getSettings';
-import { Container, GlobalStyles, Grid, Paper } from '@mui/material';
+import { Container, GlobalStyles, Grid } from '@mui/material';
 import Cookies from 'js-cookie';
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
-
-import { AppNavigation } from './AppNavigation';
 
 interface Props {
 	children: ReactNode;
 }
 
-export const DashboardLayout: React.FC<Props> = ({ children }) => {
+export const UserLayout: React.FC<Props> = ({ children }) => {
 	return (
 		<Wrapper>
 			<GlobalStyles styles={{ a: { textDecoration: `none` } }} />
@@ -43,20 +41,7 @@ export const DashboardLayout: React.FC<Props> = ({ children }) => {
 			<AppNavigation menuOverride={null} />
 			<Container maxWidth={`xl`}>
 				<Grid container spacing={2}>
-					<Grid item xs={3}>
-						<Paper elevation={2} sx={{ borderRadius: 3 }}>
-							<DashboardNavigation />
-						</Paper>
-					</Grid>
-					<Grid
-						item
-						xs={9}
-						sx={{
-							mt: 2,
-						}}
-					>
-						{children}
-					</Grid>
+					{children}
 				</Grid>
 			</Container>
 		</Wrapper>
