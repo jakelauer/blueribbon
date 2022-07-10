@@ -1,9 +1,8 @@
 import { renderRichText } from '@/render-rich-text';
 import squareLogo from '@/static/logo_square_large.png';
-import AppPage from '@/ui/components/AppPage';
-import { useAuth0 } from '@auth0/auth0-react';
+import AppPage from '@/ui/shared/AppPage';
 import { Box, SxProps, Theme, Typography } from '@mui/material';
-import { graphql, navigate } from 'gatsby';
+import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
 import { HomeDataQuery } from '../../graphql-types';
@@ -51,8 +50,6 @@ const Index: React.FC<Props> = ({ data }) => {
 
 	return (
 		<AppPage title="Home">
-			<AuthRedirect />
-
 			{data.contentfulHomePage?.preHero ? (
 				<Typography
 					variant="h1"
@@ -118,16 +115,6 @@ const Index: React.FC<Props> = ({ data }) => {
 			</Box>
 		</AppPage>
 	);
-};
-
-const AuthRedirect = () => {
-	const { isAuthenticated } = useAuth0();
-
-	if (isAuthenticated) {
-		navigate(`/dashboard`);
-	}
-
-	return null;
 };
 
 export const query = graphql`

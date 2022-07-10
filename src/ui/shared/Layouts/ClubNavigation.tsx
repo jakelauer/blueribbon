@@ -20,7 +20,7 @@ interface Endpoint {
 }
 
 const buildEndpoint = ({ title, Icon, caption }: Endpoint) => ({
-	path: `/dashboard/${kebabCase(title)}`,
+	path: `/club/${kebabCase(title)}`,
 	title,
 	caption,
 	icon: <Icon />,

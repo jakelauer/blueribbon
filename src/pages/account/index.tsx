@@ -1,16 +1,15 @@
-import DashboardPage from '@/ui/components/DashboardPage';
+import { UserForm } from '@/contracts/forms/UserForm';
 import { AutoForm } from '@/ui/shared/Forms/AutoForm';
+import UserPage from '@/ui/shared/UserPage';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
-
-import { UserForm } from '../contracts/forms/UserForm';
 
 const form = new UserForm();
 
 const Account = () => {
 	return (
-		<DashboardPage title="Account">
+		<UserPage title="Account">
 			<AutoForm title={`Account`} formSchema={form.getFormMetadata()} />
-		</DashboardPage>
+		</UserPage>
 	);
 };
 

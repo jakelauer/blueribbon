@@ -1,4 +1,4 @@
-import { DashboardLayout } from '@/ui/shared/Layouts/DashboardLayout';
+import { ClubLayout } from '@/ui/shared/Layouts/ClubLayout';
 import { Box, BoxProps } from '@mui/material';
 import { forwardRef, ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
@@ -12,19 +12,19 @@ interface Props extends BoxProps {
 	title: string;
 }
 
-const DashboardPage = forwardRef<HTMLDivElement, Props>(
+const ClubPage = forwardRef<HTMLDivElement, Props>(
 	({ children, title = ``, ...other }, ref) => (
 		<>
 			<Helmet>
 				<title>{title}</title>
 			</Helmet>
-			<DashboardLayout>
+			<ClubLayout>
 				<Box ref={ref} {...other}>
 					{children}
 				</Box>
-			</DashboardLayout>
+			</ClubLayout>
 		</>
 	),
 );
 
-export default DashboardPage;
+export default ClubPage;
