@@ -20,7 +20,7 @@ const UserPage = forwardRef<HTMLDivElement, Props>(
 				<title>{title}</title>
 			</Helmet>
 			<UserLayout>
-				<Box ref={ref} {...other}>
+				<Box ref={ref} {...other} sx={{ flex: 1 }}>
 					{children}
 				</Box>
 			</UserLayout>
