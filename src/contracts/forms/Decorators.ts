@@ -13,6 +13,8 @@ export interface Decorated {
 	formField: {
 		fieldType: string;
 		label: string;
+		groupLabel: string;
+		selectVals: Record<string, string>;
 	};
 	validationRegex?: string;
 }
@@ -27,15 +29,21 @@ export type FieldTypes =
 	| 'check'
 	| 'switch'
 	| 'longtext'
-	| 'datetime';
+	| 'datetime'
+	| 'select';
 
-export const FormField = (label: string, fieldType: FieldTypes) => {
-	const formField = {
-		label,
+export const FormField = (
+	fieldType: FieldTypes,
+	formField: {
+		label: string;
+		groupLabel?: string;
+		selectVals?: Record<string, string>;
+	},
+) => {
+	return Reflect.metadata(formFieldKey, {
 		fieldType,
-	};
-
-	return Reflect.metadata(formFieldKey, formField);
+		...formField,
+	});
 };
 
 export const GetFormField = (target: any, propertyKey: string) => {
