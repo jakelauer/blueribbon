@@ -6,33 +6,33 @@ export class UserForm extends BaseForm implements BaseUser {
 	joinDate?: string;
 	updatedDate?: string | undefined;
 
-	@FormField(`Username`, `text`)
+	@FormField(`text`, { label: `Username` })
 	@ValidationRegex(`[a-zA-Z0-9-_]{0-15}`)
 	username?: string;
 
-	@FormField(`First Name`, `text`)
+	@FormField(`text`, { label: `First Name` })
 	firstName?: string | undefined;
 
-	@FormField(`Last Name`, `text`)
+	@FormField(`text`, { label: `Last Name` })
 	lastName?: string | undefined;
 
-	@FormField(`Address Line 1`, `text`)
+	@FormField(`text`, { label: `Address Line 1` })
 	addressLine1?: string | undefined;
 
-	@FormField(`Address Line 2`, `text`)
+	@FormField(`text`, { label: `Address Line 2` })
 	addressLine2?: string | undefined;
 
-	@FormField(`City`, `text`)
+	@FormField(`text`, { label: `City` })
 	city?: string | undefined;
 
-	@FormField(`State`, `text`)
+	@FormField(`text`, { label: `State` })
 	state?: string | undefined;
 
-	@FormField(`Zip`, `text`)
+	@FormField(`text`, { label: `Zip` })
 	@ValidationRegex(`^[0-9]{5}$|^([0-9]{5}-[0-9]{4})$`)
 	zip?: string | undefined;
 
-	@FormField(`Phone Number`, `text`)
+	@FormField(`text`, { label: `Phone Number` })
 	@ValidationRegex(`^(+d{1,2}s)?(?d{3})?[s.-]d{3}[s.-]d{4}$`)
 	phone?: string | undefined;
 
