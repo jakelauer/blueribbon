@@ -36,7 +36,7 @@ const Index: React.FC<Props> = ({ data }) => {
 					zIndex: 2,
 					textAlign: `center`,
 					fontSize: {
-						xs: `12rem !important`,
+						xs: `8rem !important`,
 						md: `18rem !important`,
 					},
 					pt: 10,
@@ -59,6 +59,9 @@ const Index: React.FC<Props> = ({ data }) => {
 						zIndex: 2,
 						textAlign: `center`,
 						pt: 10,
+						fontSize: {
+							xs: `2rem !important`,
+						},
 					}}
 				>
 					{renderRichText(data.contentfulHomePage?.preHero)}

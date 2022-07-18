@@ -108,7 +108,10 @@ export const AutoForm: React.FC<Props> = ({
 			noValidate
 			autoComplete="off"
 			sx={{
-				'& .MuiTextField-root': { m: 1, width: `50ch` },
+				'& .MuiFormControl-root': {
+					m: 1,
+					maxWidth: groupStepper ? `90%` : undefined,
+				},
 			}}
 		>
 			<FormGroup sx={{ m: 1 }}>
