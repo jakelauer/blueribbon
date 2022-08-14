@@ -1,4 +1,4 @@
-import { AnimalEntrant } from './AnimalEntrant';
+import { AnimalEntrant } from "./AnimalEntrant";
 
 export interface DogRegistration {
 	country: string;

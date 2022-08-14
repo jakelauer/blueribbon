@@ -1,15 +1,15 @@
-declare module '*.png' {
+declare module "*.png" {
 	export default ``;
 }
 
-declare module '*.html' {
+declare module "*.html" {
 	export default ``;
 }
-declare module '*.css' {
+declare module "*.css" {
 	const content: { [className: string]: string };
 	export default content;
 }
 
-declare module '*.webm' {
+declare module "*.webm" {
 	export default ``;
 }

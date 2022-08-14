@@ -1,30 +1,19 @@
 // next
 // @mui
-import { Box, ListItemText, Tooltip, Typography } from '@mui/material';
-import { Link } from 'gatsby';
+import { Box, ListItemText, Tooltip, Typography } from "@mui/material";
+import { Link } from "gatsby";
 
-import { isExternalLink } from '..';
-import Iconify from '../../Iconify';
-import { NavItemProps } from '../type';
-import {
-	ListItemIconStyle,
-	ListItemStyle as ListItem,
-	ListItemTextStyle,
-} from './style';
+import { isExternalLink } from "..";
+import Iconify from "../../Iconify";
+import { NavItemProps } from "../type";
+import { ListItemIconStyle, ListItemStyle as ListItem, ListItemTextStyle } from "./style";
 
 // type
 //
 // ----------------------------------------------------------------------
 
-export function NavItemRoot({
-	item,
-	isCollapse,
-	open = false,
-	active,
-	onOpen,
-}: NavItemProps) {
-	const { title, path, icon, info, children, disabled, caption, roles } =
-		item;
+export function NavItemRoot({ item, isCollapse, open = false, active, onOpen }: NavItemProps) {
+	const { title, path, icon, info, children, disabled, caption, roles } = item;
 
 	const renderContent = (
 		<>
@@ -60,25 +49,14 @@ export function NavItemRoot({
 
 	if (children) {
 		return (
-			<ListItem
-				onClick={onOpen}
-				activeRoot={active}
-				disabled={disabled}
-				roles={roles}
-			>
+			<ListItem onClick={onOpen} activeRoot={active} disabled={disabled} roles={roles}>
 				{renderContent}
 			</ListItem>
 		);
 	}
 
 	return isExternalLink(path) ? (
-		<ListItem
-			href={path}
-			target="_blank"
-			rel="noopener"
-			disabled={disabled}
-			roles={roles}
-		>
+		<ListItem href={path} target="_blank" rel="noopener" disabled={disabled} roles={roles}>
 			{renderContent}
 		</ListItem>
 	) : (
@@ -92,14 +70,9 @@ export function NavItemRoot({
 
 // ----------------------------------------------------------------------
 
-type NavItemSubProps = Omit<NavItemProps, 'isCollapse'>;
+type NavItemSubProps = Omit<NavItemProps, "isCollapse">;
 
-export function NavItemSub({
-	item,
-	open = false,
-	active = false,
-	onOpen,
-}: NavItemSubProps) {
+export function NavItemSub({ item, open = false, active = false, onOpen }: NavItemSubProps) {
 	const { title, path, info, children, disabled, caption, roles } = item;
 
 	const renderContent = (
@@ -131,37 +104,19 @@ export function NavItemSub({
 
 	if (children) {
 		return (
-			<ListItem
-				onClick={onOpen}
-				activeSub={active}
-				subItem
-				disabled={disabled}
-				roles={roles}
-			>
+			<ListItem onClick={onOpen} activeSub={active} subItem disabled={disabled} roles={roles}>
 				{renderContent}
 			</ListItem>
 		);
 	}
 
 	return isExternalLink(path) ? (
-		<ListItem
-			href={path}
-			target="_blank"
-			rel="noopener"
-			subItem
-			disabled={disabled}
-			roles={roles}
-		>
+		<ListItem href={path} target="_blank" rel="noopener" subItem disabled={disabled} roles={roles}>
 			{renderContent}
 		</ListItem>
 	) : (
 		<Link to={path}>
-			<ListItem
-				activeSub={active}
-				subItem
-				disabled={disabled}
-				roles={roles}
-			>
+			<ListItem activeSub={active} subItem disabled={disabled} roles={roles}>
 				{renderContent}
 			</ListItem>
 		</Link>
@@ -205,14 +160,5 @@ type ArrowIconProps = {
 };
 
 export function ArrowIcon({ open }: ArrowIconProps) {
-	return (
-		<Iconify
-			icon={
-				open
-					? `eva:arrow-ios-downward-fill`
-					: `eva:arrow-ios-forward-fill`
-			}
-			sx={{ width: 16, height: 16, ml: 1 }}
-		/>
-	);
+	return <Iconify icon={open ? `eva:arrow-ios-downward-fill` : `eva:arrow-ios-forward-fill`} sx={{ width: 16, height: 16, ml: 1 }} />;
 }

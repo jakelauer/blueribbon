@@ -1,9 +1,6 @@
-import 'reflect-metadata';
+import "reflect-metadata";
 
-export type ExcludeMethods<T> = Pick<
-	T,
-	{ [K in keyof T]: T[K] extends Function ? never : K }[keyof T]
->;
+export type ExcludeMethods<T> = Pick<T, { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]>;
 
 export type ClassDataProp<T> = NonNullable<keyof ExcludeMethods<T>>;
 export type ClassDataProps<T> = (keyof ExcludeMethods<T>)[];
@@ -22,15 +19,7 @@ export interface Decorated {
 const formFieldKey = Symbol(`FormField`);
 const validationRegexKey = Symbol(`ValidationRegex`);
 
-export type FieldTypes =
-	| 'text'
-	| 'number'
-	| 'radio'
-	| 'check'
-	| 'switch'
-	| 'longtext'
-	| 'datetime'
-	| 'select';
+export type FieldTypes = "text" | "number" | "radio" | "check" | "switch" | "longtext" | "datetime" | "select";
 
 export const FormField = (
 	fieldType: FieldTypes,

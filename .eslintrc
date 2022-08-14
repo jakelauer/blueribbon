@@ -57,14 +57,10 @@
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/no-var-requires": "off",
 		"quotes": "off",
-		"@typescript-eslint/quotes": [
-			2,
-			"backtick",
-			{
-				"avoidEscape": true
-			}
-		],
-		"@typescript-eslint/no-unused-vars": [2, { "argsIgnorePattern": "^_" }]
+		"@typescript-eslint/no-unused-vars": [2, { "argsIgnorePattern": "^_" }],
+		"object-curly-newline": "error",
+		"object-property-newline":"error",
+		"curly":"error"
 	},
 	"settings": {
 		"import/resolver": {

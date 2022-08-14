@@ -1,11 +1,11 @@
-import { renderRichText } from '@/render-rich-text';
-import squareLogo from '@/static/logo_square_large.png';
-import AppPage from '@/ui/shared/AppPage';
-import { Box, SxProps, Theme, Typography } from '@mui/material';
-import { graphql } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import { renderRichText } from "@/render-rich-text";
+import squareLogo from "@/static/logo_square_large.png";
+import AppPage from "@/ui/shared/AppPage";
+import { Box, SxProps, Theme, Typography } from "@mui/material";
+import { graphql } from "gatsby";
+import React, { useEffect, useState } from "react";
 
-import { HomeDataQuery } from '../../graphql-types';
+import { HomeDataQuery } from "../../graphql-types";
 
 interface Props {
 	data: HomeDataQuery;
@@ -14,9 +14,7 @@ interface Props {
 const Index: React.FC<Props> = ({ data }) => {
 	const [videoIndex, setVideoIndex] = useState(0);
 
-	const videos =
-		data?.contentfulHomePage?.backgroundVideos?.map((a) => a?.publicUrl) ??
-		[];
+	const videos = data?.contentfulHomePage?.backgroundVideos?.map((a) => a?.publicUrl) ?? [];
 
 	useEffect(() => {
 		setVideoIndex(Math.floor(Math.random() * videos.length));

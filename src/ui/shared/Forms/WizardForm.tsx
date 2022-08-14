@@ -1,15 +1,7 @@
-import {
-	Box,
-	Button,
-	FormGroup,
-	Step,
-	StepContent,
-	StepLabel,
-	Stepper,
-} from '@mui/material';
-import { ReactElement, useState } from 'react';
+import { Box, Button, FormGroup, Step, StepContent, StepLabel, Stepper } from "@mui/material";
+import { ReactElement, useState } from "react";
 
-type NamedElement = ReactElement<{ 'data-name': string }>;
+type NamedElement = ReactElement<{ "data-name": string }>;
 
 export interface Props {
 	onChange?: (currentStep: number, incomingStep: number) => void;
@@ -56,11 +48,7 @@ export const WizardForm: React.FC<Props> = ({ children, labels, onChange }) => {
 						m: 1,
 					}}
 				>
-					<Button
-						variant={`contained`}
-						onClick={prevStep}
-						disabled={step === 0}
-					>
+					<Button variant={`contained`} onClick={prevStep} disabled={step === 0}>
 						{labels?.prev}
 					</Button>
 				</Box>
@@ -73,9 +61,7 @@ export const WizardForm: React.FC<Props> = ({ children, labels, onChange }) => {
 					}}
 				>
 					{step === children.length - 1 ? (
-						<Button variant={`contained`}>
-							{labels?.complete}
-						</Button>
+						<Button variant={`contained`}>{labels?.complete}</Button>
 					) : (
 						<Button variant={`contained`} onClick={nextStep}>
 							{labels?.next}

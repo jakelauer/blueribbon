@@ -1,8 +1,8 @@
-import { DashboardNavigation } from '@/ui/shared/Layouts/ClubNavigation';
-import { Grid, Paper } from '@mui/material';
-import React, { ReactNode } from 'react';
+import { DashboardNavigation } from "@/ui/shared/Layouts/ClubNavigation";
+import { Grid, Paper } from "@mui/material";
+import React, { ReactNode } from "react";
 
-import { UserLayout } from './UserLayout';
+import { UserLayout } from "./UserLayout";
 
 interface Props {
 	children: ReactNode;

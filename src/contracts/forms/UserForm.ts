@@ -1,6 +1,6 @@
-import { BaseUser } from '../user/BaseUser';
-import { BaseForm } from './BaseForm';
-import { FormField, ValidationRegex } from './Decorators';
+import { BaseUser } from "../user/BaseUser";
+import { BaseForm } from "./BaseForm";
+import { FormField, ValidationRegex } from "./Decorators";
 
 export class UserForm extends BaseForm implements BaseUser {
 	joinDate?: string;

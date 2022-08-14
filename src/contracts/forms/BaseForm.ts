@@ -1,9 +1,4 @@
-import {
-	ClassDataProp,
-	Decorated,
-	GetFormField,
-	GetValidationRegex,
-} from './Decorators';
+import { ClassDataProp, Decorated, GetFormField, GetValidationRegex } from "./Decorators";
 
 export class BaseForm {
 	protected static baseGetFormMetadata<T extends object>(instance: BaseForm) {

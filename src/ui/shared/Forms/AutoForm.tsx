@@ -1,4 +1,4 @@
-import { Decorated, FieldTypes } from '@/contracts/forms/Decorators';
+import { Decorated, FieldTypes } from "@/contracts/forms/Decorators";
 import {
 	Box,
 	Checkbox,
@@ -11,10 +11,10 @@ import {
 	RadioGroup,
 	TextField,
 	Typography,
-} from '@mui/material';
-import { ComponentType, Fragment, ReactNode } from 'react';
+} from "@mui/material";
+import { ComponentType, Fragment, ReactNode } from "react";
 
-import { WizardForm } from './WizardForm';
+import { WizardForm } from "./WizardForm";
 
 interface Props {
 	title: ReactNode;
@@ -25,36 +25,22 @@ interface Props {
 interface FieldProps extends Decorated {}
 
 const FormTypes: Record<FieldTypes, ComponentType<FieldProps>> = {
-	check: ({ formField, ...rest }: FieldProps) => (
-		<FormControlLabel
-			control={<Checkbox {...rest} />}
-			label={formField.label}
-		/>
-	),
+	check: ({ formField, ...rest }: FieldProps) => <FormControlLabel control={<Checkbox {...rest} />} label={formField.label} />,
 	datetime: ({ ...rest }: FieldProps) => <Checkbox {...rest} />,
-	longtext: ({ formField, ...rest }: FieldProps) => (
-		<TextField label={formField.label} rows={4} multiline {...rest} />
-	),
+	longtext: ({ formField, ...rest }: FieldProps) => <TextField label={formField.label} rows={4} multiline {...rest} />,
 	number: ({ ...rest }: FieldProps) => <Checkbox {...rest} />,
 	radio: ({ formField, ...rest }: FieldProps) => (
 		<FormControl>
 			<FormLabel>{formField.label}</FormLabel>
 			<RadioGroup {...rest}>
 				{Object.keys(formField.selectVals).map((key) => (
-					<FormControlLabel
-						key={key}
-						value={key}
-						control={<Radio />}
-						label={formField.selectVals[key]}
-					/>
+					<FormControlLabel key={key} value={key} control={<Radio />} label={formField.selectVals[key]} />
 				))}
 			</RadioGroup>
 		</FormControl>
 	),
 	switch: ({ ...rest }: FieldProps) => <Checkbox {...rest} />,
-	text: ({ formField, ...rest }: FieldProps) => (
-		<TextField label={formField.label} {...rest} />
-	),
+	text: ({ formField, ...rest }: FieldProps) => <TextField label={formField.label} {...rest} />,
 	select: ({ formField, ...rest }: FieldProps) => (
 		<TextField label={formField.label} select {...rest}>
 			{Object.keys(formField.selectVals).map((key) => (
@@ -66,20 +52,14 @@ const FormTypes: Record<FieldTypes, ComponentType<FieldProps>> = {
 	),
 };
 
-export const AutoForm: React.FC<Props> = ({
-	formSchema,
-	title,
-	groupStepper,
-}) => {
+export const AutoForm: React.FC<Props> = ({ formSchema, title, groupStepper }) => {
 	const fieldGroups = Object.keys(formSchema).reduce((acc, fieldName) => {
 		const decorated = formSchema[fieldName] as Decorated;
 		const groupLabel = decorated.formField.groupLabel ?? ``;
 		const Field = FormTypes[decorated.formField.fieldType as FieldTypes];
 
 		if (!Field) {
-			throw new Error(
-				`Invalid field type ${decorated.formField.fieldType}`,
-			);
+			throw new Error(`Invalid field type ${decorated.formField.fieldType}`);
 		}
 
 		acc[groupLabel] = acc[groupLabel] ?? [];
@@ -93,9 +73,7 @@ export const AutoForm: React.FC<Props> = ({
 
 	const inside = Object.keys(fieldGroups).map((fieldGroup) => (
 		<FormGroup key={fieldGroup} data-name={fieldGroup}>
-			{!groupStepper && (
-				<Typography variant={`h4`}>{fieldGroup}</Typography>
-			)}
+			{!groupStepper && <Typography variant={`h4`}>{fieldGroup}</Typography>}
 			{fieldGroups[fieldGroup].map((field, i) => (
 				<Fragment key={i}>{field.renderable}</Fragment>
 			))}
@@ -108,7 +86,7 @@ export const AutoForm: React.FC<Props> = ({
 			noValidate
 			autoComplete="off"
 			sx={{
-				'& .MuiFormControl-root': {
+				"& .MuiFormControl-root": {
 					m: 1,
 					maxWidth: groupStepper ? `90%` : undefined,
 				},

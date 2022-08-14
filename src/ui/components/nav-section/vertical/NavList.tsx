@@ -1,10 +1,10 @@
-import { Collapse, List } from '@mui/material';
-import { useLocation } from '@reach/router';
-import { useState } from 'react';
+import { Collapse, List } from "@mui/material";
+import { useLocation } from "@reach/router";
+import { useState } from "react";
 
-import { getActive } from '..';
-import { NavListProps } from '../type';
-import { NavItemRoot, NavItemSub } from './NavItem';
+import { getActive } from "..";
+import { NavListProps } from "../type";
+import { NavItemRoot, NavItemSub } from "./NavItem";
 
 // @mui
 // type
@@ -28,22 +28,13 @@ export function NavListRoot({ list, isCollapse }: NavListRootProps) {
 	if (hasChildren) {
 		return (
 			<>
-				<NavItemRoot
-					item={list}
-					isCollapse={isCollapse}
-					active={active}
-					open={open}
-					onOpen={() => setOpen(!open)}
-				/>
+				<NavItemRoot item={list} isCollapse={isCollapse} active={active} open={open} onOpen={() => setOpen(!open)} />
 
 				{!isCollapse && (
 					<Collapse in={open} timeout="auto" unmountOnExit>
 						<List component="div" disablePadding>
 							{(list.children || []).map((item) => (
-								<NavListSub
-									key={item.title + item.path}
-									list={item}
-								/>
+								<NavListSub key={item.title + item.path} list={item} />
 							))}
 						</List>
 					</Collapse>
@@ -73,21 +64,12 @@ function NavListSub({ list }: NavListSubProps) {
 	if (hasChildren) {
 		return (
 			<>
-				<NavItemSub
-					item={list}
-					onOpen={() => setOpen(!open)}
-					open={open}
-					active={active}
-				/>
+				<NavItemSub item={list} onOpen={() => setOpen(!open)} open={open} active={active} />
 
 				<Collapse in={open} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding sx={{ pl: 3 }}>
 						{(list.children || []).map((item) => (
-							<NavItemSub
-								key={item.title + item.path}
-								item={item}
-								active={getActive(item.path, pathname)}
-							/>
+							<NavItemSub key={item.title + item.path} item={item} active={getActive(item.path, pathname)} />
 						))}
 					</List>
 				</Collapse>

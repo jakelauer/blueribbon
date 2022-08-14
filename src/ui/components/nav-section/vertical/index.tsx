@@ -1,18 +1,16 @@
 // @mui
-import palette from '@/ui/theme/palette';
-import { Box, List, ListSubheader } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import palette from "@/ui/theme/palette";
+import { Box, List, ListSubheader } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
-import { NavSectionProps } from '../type';
-import { NavListRoot } from './NavList';
+import { NavSectionProps } from "../type";
+import { NavListRoot } from "./NavList";
 
 // type
 //
 // ----------------------------------------------------------------------
 
-export const ListSubheaderStyle = styled((props: { children: any }) => (
-	<ListSubheader disableSticky disableGutters {...props} />
-))(({ theme }) => ({
+export const ListSubheaderStyle = styled((props: { children: any }) => <ListSubheader disableSticky disableGutters {...props} />)(({ theme }) => ({
 	...theme.typography.overline,
 	paddingTop: theme.spacing(3),
 	paddingLeft: theme.spacing(2),
@@ -25,11 +23,7 @@ export const ListSubheaderStyle = styled((props: { children: any }) => (
 
 // ----------------------------------------------------------------------
 
-export default function NavSectionVertical({
-	navConfig,
-	isCollapse = false,
-	...other
-}: NavSectionProps) {
+export default function NavSectionVertical({ navConfig, isCollapse = false, ...other }: NavSectionProps) {
 	return (
 		<Box
 			{...other}
@@ -52,11 +46,7 @@ export default function NavSectionVertical({
 					</ListSubheaderStyle>
 
 					{group.items.map((list) => (
-						<NavListRoot
-							key={list.title + list.path}
-							list={list}
-							isCollapse={isCollapse}
-						/>
+						<NavListRoot key={list.title + list.path} list={list} isCollapse={isCollapse} />
 					))}
 				</List>
 			))}

@@ -1,23 +1,15 @@
-import logo from '@/static/logo_small.png';
-import useResponsive from '@/ui/hooks/useResponsive';
-import EventIcon from '@mui/icons-material/Event';
-import FeedIcon from '@mui/icons-material/Feed';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import MenuIcon from '@mui/icons-material/Menu';
-import {
-	Box,
-	Button,
-	Container,
-	Divider,
-	Drawer,
-	IconButton,
-	Toolbar,
-} from '@mui/material';
-import { Link } from 'gatsby';
-import { ReactNode, useState } from 'react';
+import logo from "@/static/logo_small.png";
+import useResponsive from "@/ui/hooks/useResponsive";
+import EventIcon from "@mui/icons-material/Event";
+import FeedIcon from "@mui/icons-material/Feed";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Box, Button, Container, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
+import { Link } from "gatsby";
+import { ReactNode, useState } from "react";
 
-import AccountMenu from '../AccountMenu';
-import { GetStartedButton, LoginButton } from '../LoginButton';
+import AccountMenu from "../AccountMenu";
+import { GetStartedButton, LoginButton } from "../LoginButton";
 
 interface LinkItem {
 	to: string;

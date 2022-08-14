@@ -1,5 +1,5 @@
 const Logo = () => {
-  return <div />;
+	return <div />;
 };
 
 export default Logo;

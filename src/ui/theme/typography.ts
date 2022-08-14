@@ -1,4 +1,4 @@
-import { pxToRem, responsiveFontSizes } from '@/ui/utils/getFontValue';
+import { pxToRem, responsiveFontSizes } from "@/ui/utils/getFontValue";
 
 // ----------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
-import { BaseClub } from '../club/BaseClub';
-import { COUNTRIES, STATES } from '../Locations';
-import { BaseForm } from './BaseForm';
-import { FormField } from './Decorators';
+import { BaseClub } from "../club/BaseClub";
+import { COUNTRIES, STATES } from "../Locations";
+import { BaseForm } from "./BaseForm";
+import { FormField } from "./Decorators";
 
 const CLUB_TYPES: Record<string, string> = {
 	basic: `General`,
@@ -17,7 +17,7 @@ export class ClubForm extends BaseForm implements BaseClub {
 		groupLabel: `Basics`,
 		selectVals: CLUB_TYPES,
 	})
-	clubType?: 'dog' | 'horse' | 'basic';
+	clubType?: "dog" | "horse" | "basic";
 
 	@FormField(`text`, { label: `Club Name`, groupLabel: `Club Information` })
 	name?: string;

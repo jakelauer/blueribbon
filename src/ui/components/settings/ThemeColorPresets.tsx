@@ -1,45 +1,40 @@
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo } from "react";
 // @mui
-import {
-  alpha,
-  ThemeProvider,
-  createTheme,
-  useTheme,
-} from '@mui/material/styles';
+import { alpha, ThemeProvider, createTheme, useTheme } from "@mui/material/styles";
 // hooks
-import useSettings from '@/ui/hooks/useSettings';
+import useSettings from "@/ui/hooks/useSettings";
 //
-import componentsOverride from '@/ui/theme/overrides';
+import componentsOverride from "@/ui/theme/overrides";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  children: ReactNode;
+	children: ReactNode;
 };
 
 export default function ThemeColorPresets({ children }: Props) {
-  const defaultTheme = useTheme();
+	const defaultTheme = useTheme();
 
-  const { setColor } = useSettings();
+	const { setColor } = useSettings();
 
-  const themeOptions = useMemo(
-    () => ({
-      ...defaultTheme,
-      palette: {
-        ...defaultTheme.palette,
-        primary: setColor,
-      },
-      customShadows: {
-        ...defaultTheme.customShadows,
-        primary: `0 8px 16px 0 ${alpha(setColor.main, 0.24)}`,
-      },
-    }),
-    [setColor, defaultTheme],
-  );
+	const themeOptions = useMemo(
+		() => ({
+			...defaultTheme,
+			palette: {
+				...defaultTheme.palette,
+				primary: setColor,
+			},
+			customShadows: {
+				...defaultTheme.customShadows,
+				primary: `0 8px 16px 0 ${alpha(setColor.main, 0.24)}`,
+			},
+		}),
+		[setColor, defaultTheme],
+	);
 
-  const theme = createTheme(themeOptions);
+	const theme = createTheme(themeOptions);
 
-  theme.components = componentsOverride(theme);
+	theme.components = componentsOverride(theme);
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+	return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

@@ -1,18 +1,11 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import LogoutIcon from '@mui/icons-material/Logout';
-import {
-	Divider,
-	IconButton,
-	ListItemIcon,
-	ListItemText,
-	Menu,
-	MenuItem,
-} from '@mui/material';
-import { Link } from 'gatsby';
-import { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { Divider, IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
+import { Link } from "gatsby";
+import { useState } from "react";
 
 interface Props {}
 
@@ -83,11 +76,7 @@ export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
 					<ListItemText>Club Dashboard</ListItemText>
 				</MenuItem>
 			) : (
-				<MenuItem
-					component={Link}
-					to={`/club/create`}
-					onClick={onClose}
-				>
+				<MenuItem component={Link} to={`/club/create`} onClick={onClose}>
 					<ListItemIcon>
 						<AddCircleIcon />
 					</ListItemIcon>

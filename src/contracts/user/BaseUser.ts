@@ -1,4 +1,6 @@
-export interface BaseUser {
+import { Syncable } from "../base/Syncable";
+
+export type BaseUser = Syncable<{
 	username?: string;
 	joinDate?: string;
 	updatedDate?: string;
@@ -11,4 +13,4 @@ export interface BaseUser {
 	zip?: string;
 	country?: string;
 	phone?: string;
-}
+}>;

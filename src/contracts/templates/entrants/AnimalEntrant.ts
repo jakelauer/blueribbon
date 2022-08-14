@@ -1,4 +1,4 @@
-import { BaseEntrant } from './BaseEntrant';
+import { BaseEntrant } from "./BaseEntrant";
 
 export interface AnimalEntrant extends BaseEntrant {
 	fullName: string;

@@ -1,8 +1,9 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
+import { Syncable } from "../base/Syncable";
 
-import { BaseUser } from './BaseUser';
+import { BaseUser } from "./BaseUser";
 
-type IClientUser = Omit<BaseUser, 'joinDate' | 'updatedDate'> & {
+type IClientUser = Omit<BaseUser, "joinDate" | "updatedDate" | "sync"> & {
 	joinDate?: DateTime;
 	updatedDate?: DateTime;
 };
@@ -25,3 +26,5 @@ export class ClientUser implements IClientUser {
 		this.username = username;
 	}
 }
+
+export type ClientUserSyncable = Syncable<ClientUser>;
