@@ -1,10 +1,10 @@
-import { Collapse, List } from '@mui/material';
-import { useLocation } from '@reach/router';
-import { useState } from 'react';
+import { Collapse, List } from "@mui/material";
+import { useLocation } from "@reach/router";
+import { useState } from "react";
 
-import { getActive } from '..';
-import { NavListProps } from '../type';
-import { NavItemRoot, NavItemSub } from './NavItem';
+import { getActive } from "..";
+import { NavListProps } from "../type";
+import { NavItemRoot, NavItemSub } from "./NavItem";
 
 // @mui
 // type
@@ -16,7 +16,8 @@ type NavListRootProps = {
 	isCollapse: boolean;
 };
 
-export function NavListRoot({ list, isCollapse }: NavListRootProps) {
+export function NavListRoot ({ list, isCollapse }: NavListRootProps)
+{
 	const { pathname } = useLocation();
 
 	const active = getActive(list.path, pathname);
@@ -25,7 +26,8 @@ export function NavListRoot({ list, isCollapse }: NavListRootProps) {
 
 	const hasChildren = list.children;
 
-	if (hasChildren) {
+	if (hasChildren)
+	{
 		return (
 			<>
 				<NavItemRoot
@@ -39,7 +41,7 @@ export function NavListRoot({ list, isCollapse }: NavListRootProps) {
 				{!isCollapse && (
 					<Collapse in={open} timeout="auto" unmountOnExit>
 						<List component="div" disablePadding>
-							{(list.children || []).map((item) => (
+							{(list.children || []).map(item => (
 								<NavListSub
 									key={item.title + item.path}
 									list={item}
@@ -61,7 +63,8 @@ type NavListSubProps = {
 	list: NavListProps;
 };
 
-function NavListSub({ list }: NavListSubProps) {
+function NavListSub ({ list }: NavListSubProps)
+{
 	const { pathname } = useLocation();
 
 	const active = getActive(list.path, pathname);
@@ -70,7 +73,8 @@ function NavListSub({ list }: NavListSubProps) {
 
 	const hasChildren = list.children;
 
-	if (hasChildren) {
+	if (hasChildren)
+	{
 		return (
 			<>
 				<NavItemSub
@@ -81,8 +85,10 @@ function NavListSub({ list }: NavListSubProps) {
 				/>
 
 				<Collapse in={open} timeout="auto" unmountOnExit>
-					<List component="div" disablePadding sx={{ pl: 3 }}>
-						{(list.children || []).map((item) => (
+					<List component="div" disablePadding sx={{
+					  pl: 3
+					}}>
+						{(list.children || []).map(item => (
 							<NavItemSub
 								key={item.title + item.path}
 								item={item}

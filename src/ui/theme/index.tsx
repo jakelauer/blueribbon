@@ -1,52 +1,55 @@
-import { useMemo, ReactNode } from 'react';
+import { useMemo, ReactNode } from "react";
 // @mui
-import { CssBaseline } from '@mui/material';
+import { CssBaseline } from "@mui/material";
 import {
-  createTheme,
-  ThemeOptions,
-  ThemeProvider as MUIThemeProvider,
-} from '@mui/material/styles';
+	createTheme,
+	ThemeOptions,
+	ThemeProvider as MUIThemeProvider
+} from "@mui/material/styles";
 // hooks
-import useSettings from '@/ui/hooks/useSettings';
+import useSettings from "@/ui/hooks/useSettings";
 //
-import palette from './palette';
-import typography from './typography';
-import breakpoints from './breakpoints';
-import componentsOverride from './overrides';
-import shadows, { customShadows } from './shadows';
+import palette from "./palette";
+import typography from "./typography";
+import breakpoints from "./breakpoints";
+import componentsOverride from "./overrides";
+import shadows, { customShadows } from "./shadows";
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  children: ReactNode;
+	children: ReactNode;
 };
 
-export default function ThemeProvider({ children }: Props) {
-  const { themeMode, themeDirection } = useSettings();
+export default function ThemeProvider ({ children }: Props)
+{
+	const { themeMode, themeDirection } = useSettings();
 
-  const isLight = themeMode === `light`;
+	const isLight = themeMode === `light`;
 
-  const themeOptions: ThemeOptions = useMemo(
-    () => ({
-      palette: isLight ? palette.light : palette.dark,
-      typography,
-      breakpoints,
-      shape: { borderRadius: 8 },
-      direction: themeDirection,
-      shadows: isLight ? shadows.light : shadows.dark,
-      customShadows: isLight ? customShadows.light : customShadows.dark,
-    }),
-    [isLight, themeDirection],
-  );
+	const themeOptions: ThemeOptions = useMemo(
+		() => ({
+			palette: isLight ? palette.light : palette.dark,
+			typography,
+			breakpoints,
+			shape: {
+				borderRadius: 8
+			},
+			direction: themeDirection,
+			shadows: isLight ? shadows.light : shadows.dark,
+			customShadows: isLight ? customShadows.light : customShadows.dark
+		}),
+		[isLight, themeDirection]
+	);
 
-  const theme = createTheme(themeOptions);
+	const theme = createTheme(themeOptions);
 
-  theme.components = componentsOverride(theme);
+	theme.components = componentsOverride(theme);
 
-  return (
-    <MUIThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </MUIThemeProvider>
-  );
+	return (
+		<MUIThemeProvider theme={theme}>
+			<CssBaseline />
+			{children}
+		</MUIThemeProvider>
+	);
 }

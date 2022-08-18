@@ -1,4 +1,5 @@
-export interface BaseUser {
+
+export type BaseUser = {
 	username?: string;
 	joinDate?: string;
 	updatedDate?: string;
@@ -11,4 +12,4 @@ export interface BaseUser {
 	zip?: string;
 	country?: string;
 	phone?: string;
-}
+};

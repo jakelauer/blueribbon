@@ -5,5 +5,5 @@ export type ClubType = typeof ClubTypes[number];
 export const ClubTypeLabels: Record<ClubType, string> = {
 	basic: `Basic`,
 	dog: `Dog`,
-	horse: `Horse`,
+	horse: `Horse`
 };

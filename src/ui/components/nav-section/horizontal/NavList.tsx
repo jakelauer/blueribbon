@@ -1,132 +1,150 @@
-import { useLocation } from '@reach/router';
-import { useEffect, useRef, useState } from 'react';
+import { useLocation } from "@reach/router";
+import { useEffect, useRef, useState } from "react";
 
-import { getActive } from '..';
-import { NavListProps } from '../type';
-import { NavItemRoot, NavItemSub } from './NavItem';
-import { PaperStyle } from './style';
+import { getActive } from "..";
+import { NavListProps } from "../type";
+import { NavItemRoot, NavItemSub } from "./NavItem";
+import { PaperStyle } from "./style";
 
 // type
 //
 // ----------------------------------------------------------------------
 
 type NavListRootProps = {
-  list: NavListProps;
+	list: NavListProps;
 };
 
-export function NavListRoot({ list }: NavListRootProps) {
-  const menuRef = useRef(null);
+export function NavListRoot ({ list }: NavListRootProps)
+{
+	const menuRef = useRef(null);
 
-  const { pathname } = useLocation();
+	const { pathname } = useLocation();
 
-  const active = getActive(list.path, pathname);
+	const active = getActive(list.path, pathname);
 
-  const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 
-  const hasChildren = list.children;
+	const hasChildren = list.children;
 
-  useEffect(() => {
-    if (open) {
-      handleClose();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+	useEffect(() =>
+	{
+		if (open)
+		{
+			handleClose();
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [pathname]);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+	const handleOpen = () =>
+	{
+		setOpen(true);
+	};
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+	const handleClose = () =>
+	{
+		setOpen(false);
+	};
 
-  if (hasChildren) {
-    return (
-      <>
-        <NavItemRoot
-          open={open}
-          item={list}
-          active={active}
-          ref={menuRef}
-          onMouseEnter={handleOpen}
-          onMouseLeave={handleClose}
-        />
+	if (hasChildren)
+	{
+		return (
+			<>
+				<NavItemRoot
+					open={open}
+					item={list}
+					active={active}
+					ref={menuRef}
+					onMouseEnter={handleOpen}
+					onMouseLeave={handleClose}
+				/>
 
-        <PaperStyle
-          open={open}
-          anchorEl={menuRef.current}
-          anchorOrigin={{ vertical: `bottom`, horizontal: `left` }}
-          transformOrigin={{ vertical: `top`, horizontal: `left` }}
-          PaperProps={{
-            onMouseEnter: handleOpen,
-            onMouseLeave: handleClose,
-          }}
-        >
-          {(list.children || []).map((item) => (
-            <NavListSub key={item.title + item.path} list={item} />
-          ))}
-        </PaperStyle>
-      </>
-    );
-  }
+				<PaperStyle
+					open={open}
+					anchorEl={menuRef.current}
+					anchorOrigin={{
+					  vertical: `bottom`, horizontal: `left`
+					}}
+					transformOrigin={{
+					  vertical: `top`, horizontal: `left`
+					}}
+					PaperProps={{
+					  onMouseEnter: handleOpen,
+					  onMouseLeave: handleClose
+					}}
+				>
+					{(list.children || []).map(item => (
+						<NavListSub key={item.title + item.path} list={item} />
+					))}
+				</PaperStyle>
+			</>
+		);
+	}
 
-  return <NavItemRoot item={list} active={active} />;
+	return <NavItemRoot item={list} active={active} />;
 }
 
 // ----------------------------------------------------------------------
 
 type NavListSubProps = {
-  list: NavListProps;
+	list: NavListProps;
 };
 
-function NavListSub({ list }: NavListSubProps) {
-  const menuRef = useRef(null);
+function NavListSub ({ list }: NavListSubProps)
+{
+	const menuRef = useRef(null);
 
-  const { pathname } = useLocation();
+	const { pathname } = useLocation();
 
-  const active = getActive(list.path, pathname);
+	const active = getActive(list.path, pathname);
 
-  const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+	const handleOpen = () =>
+	{
+		setOpen(true);
+	};
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+	const handleClose = () =>
+	{
+		setOpen(false);
+	};
 
-  const hasChildren = list.children;
+	const hasChildren = list.children;
 
-  if (hasChildren) {
-    return (
-      <>
-        <NavItemSub
-          ref={menuRef}
-          open={open}
-          item={list}
-          active={active}
-          onMouseEnter={handleOpen}
-          onMouseLeave={handleClose}
-        />
+	if (hasChildren)
+	{
+		return (
+			<>
+				<NavItemSub
+					ref={menuRef}
+					open={open}
+					item={list}
+					active={active}
+					onMouseEnter={handleOpen}
+					onMouseLeave={handleClose}
+				/>
 
-        <PaperStyle
-          open={open}
-          anchorEl={menuRef.current}
-          anchorOrigin={{ vertical: `top`, horizontal: `right` }}
-          transformOrigin={{ vertical: `top`, horizontal: `left` }}
-          PaperProps={{
-            onMouseEnter: handleOpen,
-            onMouseLeave: handleClose,
-          }}
-        >
-          {(list.children || []).map((item) => (
-            <NavListSub key={item.title + item.path} list={item} />
-          ))}
-        </PaperStyle>
-      </>
-    );
-  }
+				<PaperStyle
+					open={open}
+					anchorEl={menuRef.current}
+					anchorOrigin={{
+					  vertical: `top`, horizontal: `right`
+					}}
+					transformOrigin={{
+					  vertical: `top`, horizontal: `left`
+					}}
+					PaperProps={{
+					  onMouseEnter: handleOpen,
+					  onMouseLeave: handleClose
+					}}
+				>
+					{(list.children || []).map(item => (
+						<NavListSub key={item.title + item.path} list={item} />
+					))}
+				</PaperStyle>
+			</>
+		);
+	}
 
-  return <NavItemSub item={list} active={active} />;
+	return <NavItemSub item={list} active={active} />;
 }

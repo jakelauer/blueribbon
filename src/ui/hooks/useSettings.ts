@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { SettingsContext } from '@/ui/contexts/SettingsContext';
+import { useContext } from "react";
+import { SettingsContext } from "@/ui/contexts/SettingsContext";
 
 // ----------------------------------------------------------------------
 

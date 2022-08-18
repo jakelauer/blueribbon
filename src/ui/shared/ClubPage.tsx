@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 // ----------------------------------------------------------------------
 
 interface Props extends BoxProps {
-	children: ReactNode;
+	children?: ReactNode;
 	meta?: ReactNode;
 	title: string;
 }
@@ -24,7 +24,7 @@ const ClubPage = forwardRef<HTMLDivElement, Props>(
 				</Box>
 			</ClubLayout>
 		</>
-	),
+	)
 );
 
 export default ClubPage;

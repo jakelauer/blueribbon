@@ -1,4 +1,4 @@
-import { ClubType } from './ClubTypes';
+import { ClubType } from "./ClubTypes";
 
 export interface BaseClub {
 	clubType?: ClubType;

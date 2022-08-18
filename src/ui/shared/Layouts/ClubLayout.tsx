@@ -8,11 +8,14 @@ interface Props {
 	children: ReactNode;
 }
 
-export const ClubLayout: React.FC<Props> = ({ children }) => {
+export const ClubLayout: React.FC<Props> = ({ children }) =>
+{
 	return (
 		<UserLayout>
 			<Grid item xs={3}>
-				<Paper elevation={2} sx={{ borderRadius: 3 }}>
+				<Paper elevation={2} sx={{
+					borderRadius: 3
+				}}>
 					<DashboardNavigation />
 				</Paper>
 			</Grid>
@@ -20,7 +23,7 @@ export const ClubLayout: React.FC<Props> = ({ children }) => {
 				item
 				xs={9}
 				sx={{
-					mt: 2,
+					mt: 2
 				}}
 			>
 				{children}

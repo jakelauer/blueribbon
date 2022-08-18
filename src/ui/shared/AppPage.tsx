@@ -1,7 +1,7 @@
-import { AppLayout } from '@/ui/shared/Layouts/AppLayout';
-import { Box, BoxProps } from '@mui/material';
-import { forwardRef, ReactNode } from 'react';
-import { Helmet } from 'react-helmet';
+import { AppLayout } from "@/ui/shared/Layouts/AppLayout";
+import { Box, BoxProps } from "@mui/material";
+import { forwardRef, ReactNode } from "react";
+import { Helmet } from "react-helmet";
 
 // @mui
 // ----------------------------------------------------------------------
@@ -24,7 +24,7 @@ const AppPage = forwardRef<HTMLDivElement, Props>(
 				</Box>
 			</AppLayout>
 		</>
-	),
+	)
 );
 
 export default AppPage;

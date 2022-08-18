@@ -1,5 +1,6 @@
-const Logo = () => {
-  return <div />;
+const Logo = () =>
+{
+	return <div />;
 };
 
 export default Logo;
