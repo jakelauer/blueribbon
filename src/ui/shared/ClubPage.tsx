@@ -1,13 +1,13 @@
-import { ClubLayout } from "@/ui/shared/Layouts/ClubLayout";
-import { Box, BoxProps } from "@mui/material";
-import { forwardRef, ReactNode } from "react";
-import { Helmet } from "react-helmet";
+import { ClubLayout } from '@/ui/shared/Layouts/ClubLayout';
+import { Box, BoxProps } from '@mui/material';
+import { forwardRef, ReactNode } from 'react';
+import { Helmet } from 'react-helmet';
 
 // @mui
 // ----------------------------------------------------------------------
 
 interface Props extends BoxProps {
-	children: ReactNode;
+	children?: ReactNode;
 	meta?: ReactNode;
 	title: string;
 }

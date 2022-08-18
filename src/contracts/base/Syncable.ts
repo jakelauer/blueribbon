@@ -56,10 +56,10 @@ export class Syncable<T>
 		return this._id;
 	}
 
-	private _syncProps: SyncProps;
-	public get syncProps ()
+	private _sync: SyncProps;
+	public get sync ()
 	{
-		return this._syncProps;
+		return this._sync;
 	}
 
 	private _data: T;
@@ -72,22 +72,22 @@ export class Syncable<T>
 	{
 		this._id = createSyncId(this.type);
 		this._data = initialData;
-		this._syncProps = existingSyncProps ?? getSyncProps(this.data);
+		this._sync = existingSyncProps ?? getSyncProps(this.data);
 	}
 
 	public hydrate (id: string, data: T, syncProps: SyncProps)
 	{
 		this._id = id;
 		this._data = data;
-		this._syncProps = syncProps;
+		this._sync = syncProps;
 	}
 
 	protected onChange ()
 	{
 		const update = getSyncUpdate(this.data);
 
-		this._syncProps = {
-			...this.syncProps,
+		this._sync = {
+			...this.sync,
 			...update
 		};
 	}
@@ -115,7 +115,7 @@ export const createSyncable = <T>(type: ValidTypes, initialData: T) =>
 		public static fromJson (json: Syncable<T>)
 		{
 			const instance = new Class();
-			instance.hydrate(json.id, json.data, json.syncProps);
+			instance.hydrate(json.id, json.data, json.sync);
 
 			return instance;
 		}

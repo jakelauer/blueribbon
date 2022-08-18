@@ -1,6 +1,6 @@
-import AppPage from "@/ui/shared/AppPage";
-import ClubPage from "@/ui/shared/ClubPage";
-import { useAuth0 } from "@auth0/auth0-react";
+import AppPage from '@/ui/shared/AppPage';
+import ClubPage from '@/ui/shared/ClubPage';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function ErrorNotFound ()
 {
@@ -9,7 +9,7 @@ export default function ErrorNotFound ()
 	const Wrapper = isAuthenticated ? ClubPage : AppPage;
 
 	return (
-		<Wrapper>
+		<Wrapper title={""}>
 			<main>
 				<p>Sorry, page not found!</p>
 			</main>

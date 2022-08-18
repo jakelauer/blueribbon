@@ -1,12 +1,12 @@
-import { mongoAtlasPassword, mongoAtlasUsername } from "./keys";
+import { mongoAtlasPassword, mongoAtlasUsername } from './keys';
 
 import type { GatsbyConfig } from "gatsby";
 require("dotenv").config({
-	path: `.env.${process.env.NODE_ENV}`,
+	path: `.env.${process.env.NODE_ENV}`
 });
 
 const mongoDbConnectionString = `mongodb+srv://${encodeURIComponent(mongoAtlasUsername)}:${encodeURIComponent(
-	mongoAtlasPassword,
+	mongoAtlasPassword
 )}@showribbon-test.gwiyu.mongodb.net`;
 
 const config: GatsbyConfig = {
@@ -19,8 +19,8 @@ const config: GatsbyConfig = {
 		{
 			resolve: "gatsby-plugin-graphql-codegen",
 			options: {
-				documentPaths: ["./src/**/*.{ts,tsx}"],
-			},
+				documentPaths: ["./src/**/*.{ts,tsx}"]
+			}
 		},
 		{
 			resolve: "gatsby-source-mongodb",
@@ -31,20 +31,20 @@ const config: GatsbyConfig = {
 				connectionString: mongoDbConnectionString,
 				extraParams: {
 					w: "majority",
-					retryWrites: true,
-				},
-			},
+					retryWrites: true
+				}
+			}
 		},
 		{
 			resolve: "gatsby-source-contentful",
 			options: {
 				spaceId: process.env.CONTENTFUL_SPACE_ID,
 				accessToken: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
-				host: `preview.contentful.com`,
-			},
-		},
+				host: `preview.contentful.com`
+			}
+		}
 	],
-	jsxRuntime: `automatic`,
+	jsxRuntime: `automatic`
 };
 
 export default config;
