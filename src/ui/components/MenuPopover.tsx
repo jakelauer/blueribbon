@@ -22,7 +22,8 @@ type ArrowStyleProps = {
 	arrow: Arrow;
 };
 
-const ArrowStyle = styled(`span`)<ArrowStyleProps>(({ arrow, theme }) => {
+const ArrowStyle = styled(`span`)<ArrowStyleProps>(({ arrow, theme }) =>
+{
 	const SIZE = 12;
 
 	const POSITION = -(SIZE / 2);
@@ -33,25 +34,25 @@ const ArrowStyle = styled(`span`)<ArrowStyleProps>(({ arrow, theme }) => {
 		borderRadius: `0 0 3px 0`,
 		top: POSITION,
 		borderBottom: borderStyle,
-		borderRight: borderStyle,
+		borderRight: borderStyle
 	};
 	const bottomStyle = {
 		borderRadius: `3px 0 0 0`,
 		bottom: POSITION,
 		borderTop: borderStyle,
-		borderLeft: borderStyle,
+		borderLeft: borderStyle
 	};
 	const leftStyle = {
 		borderRadius: `0 3px 0 0`,
 		left: POSITION,
 		borderTop: borderStyle,
-		borderRight: borderStyle,
+		borderRight: borderStyle
 	};
 	const rightStyle = {
 		borderRadius: `0 0 0 3px`,
 		right: POSITION,
 		borderBottom: borderStyle,
-		borderLeft: borderStyle,
+		borderLeft: borderStyle
 	};
 
 	return {
@@ -64,44 +65,60 @@ const ArrowStyle = styled(`span`)<ArrowStyleProps>(({ arrow, theme }) => {
 			display: `block`,
 			position: `absolute`,
 			transform: `rotate(-135deg)`,
-			background: theme.palette.background.paper,
+			background: theme.palette.background.paper
 		},
 		// Top
-		...(arrow === `top-left` && { ...topStyle, left: 20 }),
+		...(arrow === `top-left` && {
+			...topStyle, left: 20
+		}),
 		...(arrow === `top-center` && {
 			...topStyle,
 			left: 0,
 			right: 0,
-			margin: `auto`,
+			margin: `auto`
 		}),
-		...(arrow === `top-right` && { ...topStyle, right: 20 }),
+		...(arrow === `top-right` && {
+			...topStyle, right: 20
+		}),
 		// Bottom
-		...(arrow === `bottom-left` && { ...bottomStyle, left: 20 }),
+		...(arrow === `bottom-left` && {
+			...bottomStyle, left: 20
+		}),
 		...(arrow === `bottom-center` && {
 			...bottomStyle,
 			left: 0,
 			right: 0,
-			margin: `auto`,
+			margin: `auto`
 		}),
-		...(arrow === `bottom-right` && { ...bottomStyle, right: 20 }),
+		...(arrow === `bottom-right` && {
+			...bottomStyle, right: 20
+		}),
 		// Left
-		...(arrow === `left-top` && { ...leftStyle, top: 20 }),
+		...(arrow === `left-top` && {
+			...leftStyle, top: 20
+		}),
 		...(arrow === `left-center` && {
 			...leftStyle,
 			top: 0,
 			bottom: 0,
-			margin: `auto`,
+			margin: `auto`
 		}),
-		...(arrow === `left-bottom` && { ...leftStyle, bottom: 20 }),
+		...(arrow === `left-bottom` && {
+			...leftStyle, bottom: 20
+		}),
 		// Right
-		...(arrow === `right-top` && { ...rightStyle, top: 20 }),
+		...(arrow === `right-top` && {
+			...rightStyle, top: 20
+		}),
 		...(arrow === `right-center` && {
 			...rightStyle,
 			top: 0,
 			bottom: 0,
-			margin: `auto`,
+			margin: `auto`
 		}),
-		...(arrow === `right-bottom` && { ...rightStyle, bottom: 20 }),
+		...(arrow === `right-bottom` && {
+			...rightStyle, bottom: 20
+		})
 	};
 });
 
@@ -112,18 +129,29 @@ interface Props extends PopoverProps {
 	disabledArrow?: boolean;
 }
 
-export default function MenuPopover({ children, arrow = `top-right`, disabledArrow, sx, ...other }: Props) {
+export default function MenuPopover ({
+	children,
+	arrow = `top-right`,
+	disabledArrow,
+	sx,
+	...other
+}: Props)
+{
 	return (
 		<Popover
-			anchorOrigin={{ vertical: `bottom`, horizontal: `right` }}
-			transformOrigin={{ vertical: `top`, horizontal: `right` }}
+			anchorOrigin={{
+			  vertical: `bottom`, horizontal: `right`
+			}}
+			transformOrigin={{
+			  vertical: `top`, horizontal: `right`
+			}}
 			PaperProps={{
-				sx: {
-					p: 1,
-					width: 200,
-					overflow: `inherit`,
-					...sx,
-				},
+			  sx: {
+			    p: 1,
+			    width: 200,
+			    overflow: `inherit`,
+			    ...sx
+			  }
 			}}
 			{...other}
 		>

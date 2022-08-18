@@ -4,10 +4,15 @@ import { AutoForm } from "@/ui/shared/Forms/AutoForm";
 
 const form = new ClubForm();
 
-export default function Index() {
+export default function Index ()
+{
 	return (
 		<AppPage title={`Create a club`}>
-			<AutoForm groupStepper title={`Create Club`} formSchema={form.getFormMetadata()}></AutoForm>
+			<AutoForm
+				groupStepper
+				title={`Create Club`}
+				formSchema={form.getFormMetadata()}
+			></AutoForm>
 		</AppPage>
 	);
 }

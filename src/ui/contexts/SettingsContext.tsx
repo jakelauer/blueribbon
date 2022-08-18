@@ -6,11 +6,21 @@ import {
 	ThemeContrast,
 	ThemeDirection,
 	ThemeLayout,
-	ThemeMode,
+	ThemeMode
 } from "@/ui/components/settings/type";
-import getColorPresets, { colorPresets, defaultPreset } from "@/ui/utils/getColorPresets";
+import getColorPresets, {
+	colorPresets,
+	defaultPreset
+} from "@/ui/utils/getColorPresets";
 import Cookies from "js-cookie";
-import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
+import {
+	createContext,
+	Dispatch,
+	ReactNode,
+	SetStateAction,
+	useEffect,
+	useState
+} from "react";
 
 // utils
 // config
@@ -20,32 +30,44 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState
 const initialState: SettingsContextProps = {
 	...defaultSettings,
 	// Mode
-	onToggleMode: () => {},
-	onChangeMode: () => {},
+	onToggleMode: () =>
+	{},
+	onChangeMode: () =>
+	{},
 
 	// Direction
-	onToggleDirection: () => {},
-	onChangeDirection: () => {},
-	onChangeDirectionByLang: () => {},
+	onToggleDirection: () =>
+	{},
+	onChangeDirection: () =>
+	{},
+	onChangeDirectionByLang: () =>
+	{},
 
 	// Layout
-	onToggleLayout: () => {},
-	onChangeLayout: () => {},
+	onToggleLayout: () =>
+	{},
+	onChangeLayout: () =>
+	{},
 
 	// Contrast
-	onToggleContrast: () => {},
-	onChangeContrast: () => {},
+	onToggleContrast: () =>
+	{},
+	onChangeContrast: () =>
+	{},
 
 	// Color
-	onChangeColor: () => {},
+	onChangeColor: () =>
+	{},
 	setColor: defaultPreset,
 	colorOption: [],
 
 	// Stretch
-	onToggleStretch: () => {},
+	onToggleStretch: () =>
+	{},
 
 	// Reset
-	onResetSetting: () => {},
+	onResetSetting: () =>
+	{}
 };
 
 const SettingsContext = createContext(initialState);
@@ -57,15 +79,22 @@ type SettingsProviderProps = {
 	defaultSettings: SettingsValueProps;
 };
 
-function SettingsProvider({ children, defaultSettings }: SettingsProviderProps) {
+function SettingsProvider ({
+	children,
+	defaultSettings
+}: SettingsProviderProps)
+{
 	const [settings, setSettings] = useSettingCookies(defaultSettings);
 
-	const langStorage = typeof window !== `undefined` ? localStorage.getItem(`i18nextLng`) : ``;
+	const langStorage =
+		typeof window !== `undefined` ? localStorage.getItem(`i18nextLng`) : ``;
 
 	const isArabic = langStorage === `ar`;
 
-	useEffect(() => {
-		if (isArabic) {
+	useEffect(() =>
+	{
+		if (isArabic)
+		{
 			onChangeDirectionByLang(`ar`);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,141 +102,159 @@ function SettingsProvider({ children, defaultSettings }: SettingsProviderProps) 
 
 	// Mode
 
-	const onToggleMode = () => {
+	const onToggleMode = () =>
+	{
 		setSettings({
 			...settings,
-			themeMode: settings.themeMode === `light` ? `dark` : `light`,
+			themeMode: settings.themeMode === `light` ? `dark` : `light`
 		});
 	};
 
-	const onChangeMode = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const onChangeMode = (event: React.ChangeEvent<HTMLInputElement>) =>
+	{
 		setSettings({
 			...settings,
-			themeMode: (event.target as HTMLInputElement).value as ThemeMode,
+			themeMode: (event.target as HTMLInputElement).value as ThemeMode
 		});
 	};
 
 	// Direction
 
-	const onToggleDirection = () => {
+	const onToggleDirection = () =>
+	{
 		setSettings({
 			...settings,
-			themeDirection: settings.themeDirection === `rtl` ? `ltr` : `rtl`,
+			themeDirection: settings.themeDirection === `rtl` ? `ltr` : `rtl`
 		});
 	};
 
-	const onChangeDirection = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const onChangeDirection = (event: React.ChangeEvent<HTMLInputElement>) =>
+	{
 		setSettings({
 			...settings,
-			themeDirection: (event.target as HTMLInputElement).value as ThemeDirection,
+			themeDirection: (event.target as HTMLInputElement)
+				.value as ThemeDirection
 		});
 	};
 
-	const onChangeDirectionByLang = (lang: string) => {
+	const onChangeDirectionByLang = (lang: string) =>
+	{
 		setSettings({
 			...settings,
-			themeDirection: lang === `ar` ? `rtl` : `ltr`,
+			themeDirection: lang === `ar` ? `rtl` : `ltr`
 		});
 	};
 
 	// Layout
 
-	const onToggleLayout = () => {
+	const onToggleLayout = () =>
+	{
 		setSettings({
 			...settings,
-			themeLayout: settings.themeLayout === `vertical` ? `horizontal` : `vertical`,
+			themeLayout:
+				settings.themeLayout === `vertical` ? `horizontal` : `vertical`
 		});
 	};
 
-	const onChangeLayout = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const onChangeLayout = (event: React.ChangeEvent<HTMLInputElement>) =>
+	{
 		setSettings({
 			...settings,
-			themeLayout: (event.target as HTMLInputElement).value as ThemeLayout,
+			themeLayout: (event.target as HTMLInputElement)
+				.value as ThemeLayout
 		});
 	};
 
 	// Contrast
 
-	const onToggleContrast = () => {
+	const onToggleContrast = () =>
+	{
 		setSettings({
 			...settings,
-			themeContrast: settings.themeContrast === `default` ? `bold` : `default`,
+			themeContrast:
+				settings.themeContrast === `default` ? `bold` : `default`
 		});
 	};
 
-	const onChangeContrast = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const onChangeContrast = (event: React.ChangeEvent<HTMLInputElement>) =>
+	{
 		setSettings({
 			...settings,
-			themeContrast: (event.target as HTMLInputElement).value as ThemeContrast,
+			themeContrast: (event.target as HTMLInputElement)
+				.value as ThemeContrast
 		});
 	};
 
 	// Color
 
-	const onChangeColor = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const onChangeColor = (event: React.ChangeEvent<HTMLInputElement>) =>
+	{
 		setSettings({
 			...settings,
-			themeColorPresets: (event.target as HTMLInputElement).value as ThemeColorPresets,
+			themeColorPresets: (event.target as HTMLInputElement)
+				.value as ThemeColorPresets
 		});
 	};
 
 	// Stretch
 
-	const onToggleStretch = () => {
+	const onToggleStretch = () =>
+	{
 		setSettings({
 			...settings,
-			themeStretch: !settings.themeStretch,
+			themeStretch: !settings.themeStretch
 		});
 	};
 
 	// Reset
 
-	const onResetSetting = () => {
+	const onResetSetting = () =>
+	{
 		setSettings({
 			themeMode: initialState.themeMode,
 			themeLayout: initialState.themeLayout,
 			themeStretch: initialState.themeStretch,
 			themeContrast: initialState.themeContrast,
 			themeDirection: initialState.themeDirection,
-			themeColorPresets: initialState.themeColorPresets,
+			themeColorPresets: initialState.themeColorPresets
 		});
 	};
 
 	return (
 		<SettingsContext.Provider
 			value={{
-				...settings,
+			  ...settings,
 
-				// Mode
-				onToggleMode,
-				onChangeMode,
+			  // Mode
+			  onToggleMode,
+			  onChangeMode,
 
-				// Direction
-				onToggleDirection,
-				onChangeDirection,
-				onChangeDirectionByLang,
+			  // Direction
+			  onToggleDirection,
+			  onChangeDirection,
+			  onChangeDirectionByLang,
 
-				// Layout
-				onToggleLayout,
-				onChangeLayout,
+			  // Layout
+			  onToggleLayout,
+			  onChangeLayout,
 
-				// Contrast
-				onChangeContrast,
-				onToggleContrast,
+			  // Contrast
+			  onChangeContrast,
+			  onToggleContrast,
 
-				// Stretch
-				onToggleStretch,
+			  // Stretch
+			  onToggleStretch,
 
-				// Color
-				onChangeColor,
-				setColor: getColorPresets(settings.themeColorPresets),
-				colorOption: colorPresets.map((color) => ({
-					name: color.name,
-					value: color.main,
-				})),
+			  // Color
+			  onChangeColor,
+			  setColor: getColorPresets(settings.themeColorPresets),
+			  colorOption: colorPresets.map(color => ({
+			    name: color.name,
+			    value: color.main
+			  })),
 
-				// Reset
-				onResetSetting,
+			  // Reset
+			  onResetSetting
 			}}
 		>
 			{children}
@@ -219,36 +266,46 @@ export { SettingsProvider, SettingsContext };
 
 // ----------------------------------------------------------------------
 
-function useSettingCookies(defaultSettings: SettingsValueProps): [SettingsValueProps, Dispatch<SetStateAction<SettingsValueProps>>] {
-	const [settings, setSettings] = useState<SettingsValueProps>(defaultSettings);
+function useSettingCookies (
+	defaultSettings: SettingsValueProps
+): [SettingsValueProps, Dispatch<SetStateAction<SettingsValueProps>>]
+{
+	const [settings, setSettings] =
+		useState<SettingsValueProps>(defaultSettings);
 
-	const onChangeSetting = () => {
+	const onChangeSetting = () =>
+	{
 		Cookies.set(cookiesKey.themeMode, settings.themeMode, {
-			expires: cookiesExpires,
+			expires: cookiesExpires
 		});
 
 		Cookies.set(cookiesKey.themeDirection, settings.themeDirection, {
-			expires: cookiesExpires,
+			expires: cookiesExpires
 		});
 
 		Cookies.set(cookiesKey.themeColorPresets, settings.themeColorPresets, {
-			expires: cookiesExpires,
+			expires: cookiesExpires
 		});
 
 		Cookies.set(cookiesKey.themeLayout, settings.themeLayout, {
-			expires: cookiesExpires,
+			expires: cookiesExpires
 		});
 
 		Cookies.set(cookiesKey.themeContrast, settings.themeContrast, {
-			expires: cookiesExpires,
+			expires: cookiesExpires
 		});
 
-		Cookies.set(cookiesKey.themeStretch, JSON.stringify(settings.themeStretch), {
-			expires: cookiesExpires,
-		});
+		Cookies.set(
+			cookiesKey.themeStretch,
+			JSON.stringify(settings.themeStretch),
+			{
+				expires: cookiesExpires
+			}
+		);
 	};
 
-	useEffect(() => {
+	useEffect(() =>
+	{
 		onChangeSetting();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [settings]);

@@ -7,7 +7,8 @@ import BackgroundIllustration from "./illustration_background";
 
 // ----------------------------------------------------------------------
 
-function PageNotFoundIllustration({ ...other }: BoxProps) {
+function PageNotFoundIllustration ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_MAIN = theme.palette.primary.main;
@@ -16,11 +17,23 @@ function PageNotFoundIllustration({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 480 360">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="100%"
+				height="100%"
+				viewBox="0 0 480 360"
+			>
 				<BackgroundIllustration />
 
 				{/* SUN */}
-				<linearGradient id="SUN" x1="64.297" x2="111.109" y1="95.623" y2="142.436" gradientUnits="userSpaceOnUse">
+				<linearGradient
+					id="SUN"
+					x1="64.297"
+					x2="111.109"
+					y1="95.623"
+					y2="142.436"
+					gradientUnits="userSpaceOnUse"
+				>
 					<stop stopColor="#FFE16A" />
 					<stop offset="1" stopColor="#B78103" />
 				</linearGradient>

@@ -3,24 +3,34 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Divider, IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
+import {
+	Divider,
+	IconButton,
+	ListItemIcon,
+	ListItemText,
+	Menu,
+	MenuItem
+} from "@mui/material";
 import { Link } from "gatsby";
 import { useState } from "react";
 
 interface Props {}
 
-const AccountMenu: React.FC<Props> = () => {
+const AccountMenu: React.FC<Props> = () =>
+{
 	const { isAuthenticated } = useAuth0();
 
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
 	const open = Boolean(anchorEl);
 
-	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+	const handleClick = (event: React.MouseEvent<HTMLElement>) =>
+	{
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleClose = () => {
+	const handleClose = () =>
+	{
 		setAnchorEl(null);
 	};
 
@@ -36,12 +46,12 @@ const AccountMenu: React.FC<Props> = () => {
 						open={open}
 						onClose={handleClose}
 						anchorOrigin={{
-							vertical: `bottom`,
-							horizontal: `right`,
+						  vertical: `bottom`,
+						  horizontal: `right`
 						}}
 						transformOrigin={{
-							vertical: `top`,
-							horizontal: `right`,
+						  vertical: `top`,
+						  horizontal: `right`
 						}}
 					>
 						<AccountMenuItems onClose={handleClose} />
@@ -56,11 +66,15 @@ interface MenuItemProps {
 	onClose?: () => void;
 }
 
-export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
+export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) =>
+{
 	const { logout } = useAuth0();
 
-	const onLogOut = () => {
-		logout({ returnTo: window?.location?.origin ?? `/` });
+	const onLogOut = () =>
+	{
+		logout({
+			returnTo: window?.location?.origin ?? `/`
+		});
 		onClose?.();
 	};
 
@@ -68,21 +82,27 @@ export const AccountMenuItems: React.FC<MenuItemProps> = ({ onClose }) => {
 
 	return (
 		<>
-			{userOwnsClub ? (
-				<MenuItem component={Link} to={`/club`} onClick={onClose}>
-					<ListItemIcon>
-						<DashboardIcon />
-					</ListItemIcon>
-					<ListItemText>Club Dashboard</ListItemText>
-				</MenuItem>
-			) : (
-				<MenuItem component={Link} to={`/club/create`} onClick={onClose}>
-					<ListItemIcon>
-						<AddCircleIcon />
-					</ListItemIcon>
-					<ListItemText>Create a Club</ListItemText>
-				</MenuItem>
-			)}
+			{userOwnsClub
+			  ? (
+					<MenuItem component={Link} to={`/club`} onClick={onClose}>
+						<ListItemIcon>
+							<DashboardIcon />
+						</ListItemIcon>
+						<ListItemText>Club Dashboard</ListItemText>
+					</MenuItem>
+			    )
+			  : (
+					<MenuItem
+						component={Link}
+						to={`/club/create`}
+						onClick={onClose}
+					>
+						<ListItemIcon>
+							<AddCircleIcon />
+						</ListItemIcon>
+						<ListItemText>Create a Club</ListItemText>
+					</MenuItem>
+			    )}
 			<Divider />
 			<MenuItem component={Link} to={`/account`} onClick={onClose}>
 				<ListItemIcon>

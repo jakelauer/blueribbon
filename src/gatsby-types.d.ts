@@ -85,7 +85,9 @@ declare namespace Queries {
 		formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
 		height: InputMaybe<Scalars["Int"]>;
 		layout?: InputMaybe<RemoteFileLayout>;
-		outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars["Float"]>>>;
+		outputPixelDensities?: InputMaybe<
+			ReadonlyArray<InputMaybe<Scalars["Float"]>>
+		>;
 		placeholder?: InputMaybe<RemoteFilePlaceholder>;
 		quality?: InputMaybe<Scalars["Int"]>;
 		sizes: InputMaybe<Scalars["String"]>;
@@ -102,7 +104,9 @@ declare namespace Queries {
 		height: InputMaybe<Scalars["Int"]>;
 		jpegProgressive?: InputMaybe<Scalars["Boolean"]>;
 		layout: InputMaybe<GatsbyImageLayout>;
-		outputPixelDensities: InputMaybe<ReadonlyArray<InputMaybe<Scalars["Float"]>>>;
+		outputPixelDensities: InputMaybe<
+			ReadonlyArray<InputMaybe<Scalars["Float"]>>
+		>;
 		placeholder: InputMaybe<GatsbyImagePlaceholder>;
 		quality: InputMaybe<Scalars["Int"]>;
 		resizingBehavior: InputMaybe<ImageResizingBehavior>;
@@ -373,7 +377,9 @@ declare namespace Queries {
 	};
 
 	type ContentfulAssetSortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAssetFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<ContentfulAssetFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
@@ -575,7 +581,9 @@ declare namespace Queries {
 	};
 
 	type ContentfulContentTypeSortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulContentTypeFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<ContentfulContentTypeFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
@@ -772,14 +780,18 @@ declare namespace Queries {
 	};
 
 	type ContentfulEntrySortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulEntryFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<ContentfulEntryFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
 	type ContentfulHomePage = ContentfulEntry &
 		ContentfulReference &
 		Node & {
-			readonly backgroundVideos: Maybe<ReadonlyArray<Maybe<ContentfulAsset>>>;
+			readonly backgroundVideos: Maybe<
+				ReadonlyArray<Maybe<ContentfulAsset>>
+			>;
 			readonly children: ReadonlyArray<Node>;
 			readonly contentful_id: Scalars["String"];
 			readonly createdAt: Maybe<Scalars["Date"]>;
@@ -1083,7 +1095,9 @@ declare namespace Queries {
 	};
 
 	type ContentfulHomePageSortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulHomePageFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<ContentfulHomePageFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
@@ -1471,7 +1485,9 @@ declare namespace Queries {
 	};
 
 	type DirectorySortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<DirectoryFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<DirectoryFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
@@ -1815,16 +1831,30 @@ declare namespace Queries {
 
 	type GatsbyImageDataQueryOperatorInput = {
 		readonly eq: InputMaybe<Scalars["GatsbyImageData"]>;
-		readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars["GatsbyImageData"]>>>;
+		readonly in: InputMaybe<
+			ReadonlyArray<InputMaybe<Scalars["GatsbyImageData"]>>
+		>;
 		readonly ne: InputMaybe<Scalars["GatsbyImageData"]>;
-		readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars["GatsbyImageData"]>>>;
+		readonly nin: InputMaybe<
+			ReadonlyArray<InputMaybe<Scalars["GatsbyImageData"]>>
+		>;
 	};
 
-	type GatsbyImageFormat = "auto" | "avif" | "jpg" | "NO_CHANGE" | "png" | "webp";
+	type GatsbyImageFormat =
+		| "auto"
+		| "avif"
+		| "jpg"
+		| "NO_CHANGE"
+		| "png"
+		| "webp";
 
 	type GatsbyImageLayout = "constrained" | "fixed" | "fullWidth";
 
-	type GatsbyImagePlaceholder = "blurred" | "dominantColor" | "none" | "tracedSVG";
+	type GatsbyImagePlaceholder =
+		| "blurred"
+		| "dominantColor"
+		| "none"
+		| "tracedSVG";
 
 	type ImageResizingBehavior =
 		/** Crop a part of the original image to match the specified size. */
@@ -2243,7 +2273,9 @@ declare namespace Queries {
 		formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
 		height: InputMaybe<Scalars["Int"]>;
 		layout?: InputMaybe<RemoteFileLayout>;
-		outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars["Float"]>>>;
+		outputPixelDensities?: InputMaybe<
+			ReadonlyArray<InputMaybe<Scalars["Float"]>>
+		>;
 		placeholder?: InputMaybe<RemoteFilePlaceholder>;
 		quality?: InputMaybe<Scalars["Int"]>;
 		sizes: InputMaybe<Scalars["String"]>;
@@ -2261,7 +2293,15 @@ declare namespace Queries {
 		width: InputMaybe<Scalars["Int"]>;
 	};
 
-	type RemoteFileCropFocus = "bottom" | "center" | "edges" | "entropy" | "faces" | "left" | "right" | "top";
+	type RemoteFileCropFocus =
+		| "bottom"
+		| "center"
+		| "edges"
+		| "entropy"
+		| "faces"
+		| "left"
+		| "right"
+		| "top";
 
 	type RemoteFileFit = "contain" | "cover" | "fill" | "outside";
 
@@ -2269,7 +2309,11 @@ declare namespace Queries {
 
 	type RemoteFileLayout = "constrained" | "fixed" | "fullWidth";
 
-	type RemoteFilePlaceholder = "blurred" | "dominantColor" | "none" | "tracedSVG";
+	type RemoteFilePlaceholder =
+		| "blurred"
+		| "dominantColor"
+		| "none"
+		| "tracedSVG";
 
 	type RemoteFileResize = {
 		readonly height: Maybe<Scalars["Int"]>;
@@ -2495,7 +2539,9 @@ declare namespace Queries {
 	};
 
 	type SiteBuildMetadataSortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteBuildMetadataFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<SiteBuildMetadataFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
@@ -2853,7 +2899,9 @@ declare namespace Queries {
 	};
 
 	type SiteFunctionSortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteFunctionFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<SiteFunctionFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
@@ -3139,7 +3187,9 @@ declare namespace Queries {
 	};
 
 	type SitePageSortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePageFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<SitePageFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 
@@ -3349,7 +3399,9 @@ declare namespace Queries {
 	};
 
 	type SitePluginSortInput = {
-		readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePluginFieldsEnum>>>;
+		readonly fields: InputMaybe<
+			ReadonlyArray<InputMaybe<SitePluginFieldsEnum>>
+		>;
 		readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 	};
 

@@ -5,7 +5,8 @@ import { Box, BoxProps } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-function PlanStarterIcon({ ...other }: BoxProps) {
+function PlanStarterIcon ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_MAIN = theme.palette.primary.main;
@@ -16,11 +17,20 @@ function PlanStarterIcon({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				xmlnsXlink="http://www.w3.org/1999/xlink"
+				width="80"
+				height="80"
+				viewBox="0 0 80 80"
+			>
 				<g transform="translate(0 -5)">
 					<g transform="translate(0 9.15)">
 						<g transform="translate(9.167 19.963)">
-							<path fill={PRIMARY_DARK} d="M53.333 17.467H61.666V24.953H53.333z" />
+							<path
+								fill={PRIMARY_DARK}
+								d="M53.333 17.467H61.666V24.953H53.333z"
+							/>
 
 							<path
 								fill={PRIMARY_DARKER}
@@ -41,7 +51,10 @@ function PlanStarterIcon({ ...other }: BoxProps) {
 					</g>
 
 					<g transform="translate(9.167 19.963)">
-						<path fill={PRIMARY_DARK} d="M53.333 17.467H61.666V24.953H53.333z" />
+						<path
+							fill={PRIMARY_DARK}
+							d="M53.333 17.467H61.666V24.953H53.333z"
+						/>
 
 						<path
 							fill={PRIMARY_DARKER}

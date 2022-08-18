@@ -12,17 +12,19 @@ interface Props extends BoxProps {
 	title: string;
 }
 
-const AppPage = forwardRef<HTMLDivElement, Props>(({ children, title = ``, ...other }, ref) => (
-	<>
-		<Helmet>
-			<title>{title}</title>
-		</Helmet>
-		<AppLayout>
-			<Box ref={ref} {...other}>
-				{children}
-			</Box>
-		</AppLayout>
-	</>
-));
+const AppPage = forwardRef<HTMLDivElement, Props>(
+	({ children, title = ``, ...other }, ref) => (
+		<>
+			<Helmet>
+				<title>{title}</title>
+			</Helmet>
+			<AppLayout>
+				<Box ref={ref} {...other}>
+					{children}
+				</Box>
+			</AppLayout>
+		</>
+	)
+);
 
 export default AppPage;

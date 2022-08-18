@@ -4,7 +4,15 @@ import EventIcon from "@mui/icons-material/Event";
 import FeedIcon from "@mui/icons-material/Feed";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box, Button, Container, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
+import {
+	Box,
+	Button,
+	Container,
+	Divider,
+	Drawer,
+	IconButton,
+	Toolbar
+} from "@mui/material";
 import { Link } from "gatsby";
 import { ReactNode, useState } from "react";
 
@@ -22,21 +30,26 @@ interface Props {
 	showBorder?: boolean;
 }
 
-export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
+export const AppNavigation: React.FC<Props> = ({ menuOverride }) =>
+{
 	const isDesktop = useResponsive(`up`, `md`);
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+	const handleClick = (event: React.MouseEvent<HTMLElement>) =>
+	{
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleClose = () => {
+	const handleClose = () =>
+	{
 		setAnchorEl(null);
 	};
 
 	const open = Boolean(anchorEl);
 
 	return (
-		<Container maxWidth={`xl`} sx={{ my: 2 }}>
+		<Container maxWidth={`xl`} sx={{
+		  my: 2
+		}}>
 			<Toolbar disableGutters>
 				<Box>
 					<Link to="/">
@@ -47,10 +60,10 @@ export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
 				{!isDesktop && (
 					<Box
 						sx={{
-							justifyContent: `flex-end`,
-							flexGrow: 1,
-							display: `flex`,
-							alignItems: `center`,
+						  justifyContent: `flex-end`,
+						  flexGrow: 1,
+						  display: `flex`,
+						  alignItems: `center`
 						}}
 					>
 						<IconButton onClick={handleClick}>
@@ -68,9 +81,9 @@ export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
 						open={open}
 						onClose={handleClose}
 						PaperProps={{
-							sx: {
-								minWidth: `50vw`,
-							},
+						  sx: {
+						    minWidth: `50vw`
+						  }
 						}}
 					>
 						<Contents menuOverride={menuOverride} />
@@ -81,7 +94,8 @@ export const AppNavigation: React.FC<Props> = ({ menuOverride }) => {
 	);
 };
 
-const Contents: React.FC<Props> = ({ menuOverride }) => {
+const Contents: React.FC<Props> = ({ menuOverride }) =>
+{
 	const isDesktop = useResponsive(`up`, `md`);
 
 	const override = menuOverride !== undefined;
@@ -90,27 +104,29 @@ const Contents: React.FC<Props> = ({ menuOverride }) => {
 		{
 			to: `/how-it-works`,
 			label: `How It Works`,
-			icon: <FeedIcon />,
+			icon: <FeedIcon />
 		},
 		{
 			to: `/events`,
 			label: `Events`,
-			icon: <EventIcon />,
+			icon: <EventIcon />
 		},
 		{
 			to: `/pricing`,
 			label: `Pricing`,
-			icon: <LocalOfferIcon />,
-		},
+			icon: <LocalOfferIcon />
+		}
 	];
 
 	return (
 		<Box
 			sx={{
-				justifyContent: `flex-end`,
-				flexGrow: 1,
-				display: { md: `flex` },
-				alignItems: `center`,
+			  justifyContent: `flex-end`,
+			  flexGrow: 1,
+			  display: {
+			    md: `flex`
+			  },
+			  alignItems: `center`
 			}}
 		>
 			{!override &&
@@ -121,11 +137,11 @@ const Contents: React.FC<Props> = ({ menuOverride }) => {
 						to={link.to}
 						startIcon={link.icon}
 						sx={{
-							display: `flex`,
-							my: 2,
-							mx: 1,
-							alignSelf: `flex-start`,
-							justifyContent: `flex-start`,
+						  display: `flex`,
+						  my: 2,
+						  mx: 1,
+						  alignSelf: `flex-start`,
+						  justifyContent: `flex-start`
 						}}
 					>
 						{link.label}
@@ -137,7 +153,7 @@ const Contents: React.FC<Props> = ({ menuOverride }) => {
 					<Divider
 						orientation="vertical"
 						sx={{
-							height: 40,
+						  height: 40
 						}}
 					/>
 					<LoginButton />

@@ -11,7 +11,9 @@ import Iconify from "../../Iconify";
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(`span`)(({ theme }) => ({
-	...cssStyles(theme).bgBlur({ opacity: 0.64 }),
+	...cssStyles(theme).bgBlur({
+		opacity: 0.64
+	}),
 	right: 0,
 	top: `50%`,
 	position: `fixed`,
@@ -19,7 +21,12 @@ const RootStyle = styled(`span`)(({ theme }) => ({
 	padding: theme.spacing(0.5),
 	zIndex: theme.zIndex.drawer + 2,
 	borderRadius: `24px 0 20px 24px`,
-	boxShadow: `-12px 12px 32px -4px ${alpha(theme.palette.mode === `light` ? theme.palette.grey[600] : theme.palette.common.black, 0.36)}`,
+	boxShadow: `-12px 12px 32px -4px ${alpha(
+		theme.palette.mode === `light`
+			? theme.palette.grey[600]
+			: theme.palette.common.black,
+		0.36
+	)}`
 }));
 
 const DotStyle = styled(`span`)(({ theme }) => ({
@@ -29,7 +36,7 @@ const DotStyle = styled(`span`)(({ theme }) => ({
 	right: 10,
 	borderRadius: `50%`,
 	position: `absolute`,
-	backgroundColor: theme.palette.error.main,
+	backgroundColor: theme.palette.error.main
 }));
 
 // ----------------------------------------------------------------------
@@ -40,7 +47,8 @@ type Props = {
 	onToggle: () => void;
 };
 
-export default function ToggleButton({ notDefault, open, onToggle }: Props) {
+export default function ToggleButton ({ notDefault, open, onToggle }: Props)
+{
 	return (
 		<RootStyle>
 			{notDefault && !open && <DotStyle />}
@@ -50,12 +58,16 @@ export default function ToggleButton({ notDefault, open, onToggle }: Props) {
 					color="inherit"
 					onClick={onToggle}
 					sx={{
-						p: 1.25,
-						transition: (theme) => theme.transitions.create(`all`),
-						"&:hover": {
-							color: `primary.main`,
-							bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.hoverOpacity),
-						},
+					  p: 1.25,
+					  transition: theme => theme.transitions.create(`all`),
+					  "&:hover": {
+					    color: `primary.main`,
+					    bgcolor: theme =>
+					      alpha(
+					        theme.palette.primary.main,
+					        theme.palette.action.hoverOpacity
+					      )
+					  }
 					}}
 				>
 					<Iconify icon="eva:options-2-fill" width={20} height={20} />

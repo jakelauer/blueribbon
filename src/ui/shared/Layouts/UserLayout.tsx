@@ -29,11 +29,19 @@ interface Props {
 	children: ReactNode;
 }
 
-export const UserLayout: React.FC<Props> = ({ children }) => {
+export const UserLayout: React.FC<Props> = ({ children }) =>
+{
 	return (
 		<Wrapper>
-			<GlobalStyles styles={{ a: { textDecoration: `none` } }} />
-			<Helmet titleTemplate="%s | Blue Ribbon" defaultTitle="Blue Ribbon"></Helmet>
+			<GlobalStyles styles={{
+			  a: {
+			    textDecoration: `none`
+			  }
+			}} />
+			<Helmet
+				titleTemplate="%s | Blue Ribbon"
+				defaultTitle="Blue Ribbon"
+			></Helmet>
 			<ProgressBar />
 			<AppNavigation menuOverride={null} />
 			<Container maxWidth={`xl`}>
@@ -45,7 +53,8 @@ export const UserLayout: React.FC<Props> = ({ children }) => {
 	);
 };
 
-const Wrapper: React.FC<Props> = ({ children }) => {
+const Wrapper: React.FC<Props> = ({ children }) =>
+{
 	const settings = getSettings(Cookies.get());
 
 	return (

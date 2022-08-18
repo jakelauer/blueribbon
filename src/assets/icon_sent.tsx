@@ -5,7 +5,8 @@ import { Box, BoxProps } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-function SentIcon({ ...other }: BoxProps) {
+function SentIcon ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_MAIN = theme.palette.primary.main;
@@ -14,9 +15,20 @@ function SentIcon({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 120 140">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="100%"
+				height="100%"
+				viewBox="0 0 120 140"
+			>
 				<defs>
-					<linearGradient id="STYLE" x1="49.662%" x2="52.228%" y1="37.111%" y2="76.847%">
+					<linearGradient
+						id="STYLE"
+						x1="49.662%"
+						x2="52.228%"
+						y1="37.111%"
+						y2="76.847%"
+					>
 						<stop offset="0%" stopColor={PRIMARY_MAIN} />
 						<stop offset="100%" stopColor={PRIMARY_DARK} />
 					</linearGradient>

@@ -1,4 +1,5 @@
-const Logo = () => {
+const Logo = () =>
+{
 	return <div />;
 };
 

@@ -1,6 +1,5 @@
-import { Syncable } from "../base/Syncable";
 
-export type BaseUser = Syncable<{
+export type BaseUser = {
 	username?: string;
 	joinDate?: string;
 	updatedDate?: string;
@@ -13,4 +12,4 @@ export type BaseUser = Syncable<{
 	zip?: string;
 	country?: string;
 	phone?: string;
-}>;
+};

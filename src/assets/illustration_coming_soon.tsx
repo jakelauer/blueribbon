@@ -7,7 +7,8 @@ import BackgroundIllustration from "./illustration_background";
 
 // ----------------------------------------------------------------------
 
-function ComingSoonIllustration({ ...other }: BoxProps) {
+function ComingSoonIllustration ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_MAIN = theme.palette.primary.main;
@@ -18,7 +19,13 @@ function ComingSoonIllustration({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				xmlnsXlink="http://www.w3.org/1999/xlink"
+				width="100%"
+				height="100%"
+				viewBox="0 0 480 360"
+			>
 				<BackgroundIllustration />
 
 				<path
@@ -34,9 +41,17 @@ function ComingSoonIllustration({ ...other }: BoxProps) {
 					opacity="0.24"
 				/>
 
-				<path fill={PRIMARY_DARK} fillRule="nonzero" d="M58.7766 78.9925L73.3695 72.9658 153.612 80.4902 153.612 88.123 58.7766 88.4052z" />
+				<path
+					fill={PRIMARY_DARK}
+					fillRule="nonzero"
+					d="M58.7766 78.9925L73.3695 72.9658 153.612 80.4902 153.612 88.123 58.7766 88.4052z"
+				/>
 
-				<path fill={PRIMARY_MAIN} fillRule="nonzero" d="M85.3001 70.6L70.9387 70.6 70.9387 270.104 85.3001 270.104z" />
+				<path
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					d="M85.3001 70.6L70.9387 70.6 70.9387 270.104 85.3001 270.104z"
+				/>
 
 				<path
 					fill="#FFF"
@@ -44,7 +59,12 @@ function ComingSoonIllustration({ ...other }: BoxProps) {
 					d="M182.117 239.326h-5.156a1 1 0 00-1 1v48.326a1 1 0 001 1h5.156a1 1 0 001-1v-48.326a1 1 0 00-1-1z"
 				/>
 
-				<path fill="#C4CDD5" fillRule="nonzero" d="M175.828 265.587L183.034 265.587 183.034 240.909 175.676 240.909z" opacity="0.5" />
+				<path
+					fill="#C4CDD5"
+					fillRule="nonzero"
+					d="M175.828 265.587L183.034 265.587 183.034 240.909 175.676 240.909z"
+					opacity="0.5"
+				/>
 
 				<path
 					fill="#FFF"
@@ -52,7 +72,12 @@ function ComingSoonIllustration({ ...other }: BoxProps) {
 					d="M131.023 239.326h-5.155a1 1 0 00-1 1v46.641a1 1 0 001 1h5.155a1 1 0 001-1v-46.641a1 1 0 00-1-1z"
 				/>
 
-				<path fill="#C4CDD5" fillRule="nonzero" d="M124.919 265.587L132.125 265.587 132.125 240.909 124.767 240.909z" opacity="0.5" />
+				<path
+					fill="#C4CDD5"
+					fillRule="nonzero"
+					d="M124.919 265.587L132.125 265.587 132.125 240.909 124.767 240.909z"
+					opacity="0.5"
+				/>
 
 				<path
 					fill={PRIMARY_DARKER}
@@ -79,9 +104,17 @@ function ComingSoonIllustration({ ...other }: BoxProps) {
 					d="M165.377 124.963H128.37a1.57 1.57 0 00-1.57 1.57v.008c0 .867.703 1.57 1.57 1.57h37.007a1.57 1.57 0 001.57-1.57v-.008a1.57 1.57 0 00-1.57-1.57zM148.222 130.628h-20.547a.876.876 0 000 1.751h20.547a.876.876 0 100-1.751zM157.512 134.977h-20.547a.876.876 0 100 1.75h20.547a.875.875 0 100-1.75zM153.627 130.628h-1.548a.861.861 0 00-.861.861v.007a.86.86 0 00.861.861h1.548a.86.86 0 00.861-.861v-.007a.861.861 0 00-.861-.861zM158.344 130.628h-1.548a.861.861 0 00-.861.861v.007a.86.86 0 00.861.861h1.548a.86.86 0 00.861-.861v-.007a.861.861 0 00-.861-.861zM131.604 134.977h-1.548a.86.86 0 00-.861.861v.007c0 .475.385.861.861.861h1.548a.862.862 0 00.861-.861v-.007a.861.861 0 00-.861-.861zM163.061 130.628h-1.548a.862.862 0 00-.861.861v.007c0 .476.386.861.861.861h1.548a.86.86 0 00.861-.861v-.007a.861.861 0 00-.861-.861z"
 				/>
 
-				<path fill={PRIMARY_MAIN} fillRule="nonzero" d="M178.414 221.608L118.943 221.608 118.943 230.637 178.414 230.637z" />
+				<path
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					d="M178.414 221.608L118.943 221.608 118.943 230.637 178.414 230.637z"
+				/>
 
-				<path fill={PRIMARY_MAIN} fillRule="nonzero" d="M188.182 243.636L118.182 243.636 118.182 261.818 188.182 261.818z" />
+				<path
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					d="M188.182 243.636L118.182 243.636 118.182 261.818 188.182 261.818z"
+				/>
 
 				<path
 					fill="#FFF"

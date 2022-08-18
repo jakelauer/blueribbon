@@ -7,7 +7,8 @@ import BackgroundIllustration from "./illustration_background";
 
 // ----------------------------------------------------------------------
 
-function MaintenanceIllustration({ ...other }: BoxProps) {
+function MaintenanceIllustration ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_MAIN = theme.palette.primary.main;
@@ -16,16 +17,34 @@ function MaintenanceIllustration({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				xmlnsXlink="http://www.w3.org/1999/xlink"
+				width="100%"
+				height="100%"
+				viewBox="0 0 480 360"
+			>
 				<BackgroundIllustration />
 
 				<defs>
-					<linearGradient id="linearGradient-2" x1=".004%" x2="100.003%" y1="49.995%" y2="49.995%">
+					<linearGradient
+						id="linearGradient-2"
+						x1=".004%"
+						x2="100.003%"
+						y1="49.995%"
+						y2="49.995%"
+					>
 						<stop offset="0%" stopColor="#FFC444" />
 						<stop offset="100%" stopColor="#F36F56" />
 					</linearGradient>
 
-					<linearGradient id="linearGradient-5" x1="51.677%" x2="47.989%" y1="-28.72%" y2="127.533%">
+					<linearGradient
+						id="linearGradient-5"
+						x1="51.677%"
+						x2="47.989%"
+						y1="-28.72%"
+						y2="127.533%"
+					>
 						<stop offset="0%" stopColor="#FFC444" />
 						<stop offset="100%" stopColor="#F36F56" />
 					</linearGradient>
@@ -120,11 +139,29 @@ function MaintenanceIllustration({ ...other }: BoxProps) {
 					d="M158.769 278.12c-3.299 1.101-8.572 1.894-14.893 2.188-2.545.12-5.237.159-8.037.107-9.736-.184-18.178-1.434-22.67-3.137l4.039-10.527c4.728 1.062 11.316 1.778 18.644 1.888 2.368.036 4.676.006 6.874-.083 4.623-.183 8.7-.626 11.913-1.255l4.071 10.812.059.007zM148.93 252.246c-2.519.272-5.287.457-8.225.54-1.573.046-3.194.063-4.849.046a112.824 112.824 0 01-12.991-.835l4.326-11.293c2.707.214 5.623.336 8.665.353 1.071.006 2.129-.001 3.172-.022 1.907-.036 3.751-.112 5.519-.23l4.383 11.441z"
 				/>
 
-				<circle cx="52.108" cy="100.682" r="2.5" fill="#FF4842" fillRule="nonzero" />
+				<circle
+					cx="52.108"
+					cy="100.682"
+					r="2.5"
+					fill="#FF4842"
+					fillRule="nonzero"
+				/>
 
-				<circle cx="60.108" cy="100.682" r="2.5" fill="#FFC107" fillRule="nonzero" />
+				<circle
+					cx="60.108"
+					cy="100.682"
+					r="2.5"
+					fill="#FFC107"
+					fillRule="nonzero"
+				/>
 
-				<circle cx="68.108" cy="100.682" r="2.5" fill="#54D62C" fillRule="nonzero" />
+				<circle
+					cx="68.108"
+					cy="100.682"
+					r="2.5"
+					fill="#54D62C"
+					fillRule="nonzero"
+				/>
 
 				<image
 					width="185"

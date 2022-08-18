@@ -1,3 +1,4 @@
-export default function Personal() {
+export default function Personal ()
+{
 	return <div />;
 }

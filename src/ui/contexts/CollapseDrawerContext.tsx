@@ -1,6 +1,8 @@
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { createContext, ReactNode, useEffect, useState } from "react";
+import {
+	createContext, ReactNode, useEffect, useState
+} from "react";
 
 // @mui
 // ----------------------------------------------------------------------
@@ -17,9 +19,12 @@ export type CollapseDrawerContextProps = {
 const initialState: CollapseDrawerContextProps = {
 	collapseClick: false,
 	collapseHover: false,
-	onToggleCollapse: () => {},
-	onHoverEnter: () => {},
-	onHoverLeave: () => {},
+	onToggleCollapse: () =>
+	{},
+	onHoverEnter: () =>
+	{},
+	onHoverLeave: () =>
+	{}
 };
 
 const CollapseDrawerContext = createContext(initialState);
@@ -28,46 +33,59 @@ type CollapseDrawerProviderProps = {
 	children: ReactNode;
 };
 
-function CollapseDrawerProvider({ children }: CollapseDrawerProviderProps) {
+function CollapseDrawerProvider ({ children }: CollapseDrawerProviderProps)
+{
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down(`lg`));
 	const [collapse, setCollapse] = useState({
 		click: false,
-		hover: false,
+		hover: false
 	});
 
-	useEffect(() => {
-		if (isMobile) {
+	useEffect(() =>
+	{
+		if (isMobile)
+		{
 			setCollapse({
 				click: false,
-				hover: false,
+				hover: false
 			});
 		}
 	}, [isMobile]);
 
-	const handleToggleCollapse = () => {
-		setCollapse({ ...collapse, click: !collapse.click });
+	const handleToggleCollapse = () =>
+	{
+		setCollapse({
+			...collapse, click: !collapse.click
+		});
 	};
 
-	const handleHoverEnter = () => {
-		if (collapse.click) {
-			setCollapse({ ...collapse, hover: true });
+	const handleHoverEnter = () =>
+	{
+		if (collapse.click)
+		{
+			setCollapse({
+				...collapse, hover: true
+			});
 		}
 	};
 
-	const handleHoverLeave = () => {
-		setCollapse({ ...collapse, hover: false });
+	const handleHoverLeave = () =>
+	{
+		setCollapse({
+			...collapse, hover: false
+		});
 	};
 
 	return (
 		<CollapseDrawerContext.Provider
 			value={{
-				isCollapse: collapse.click && !collapse.hover,
-				collapseClick: collapse.click,
-				collapseHover: collapse.hover,
-				onToggleCollapse: handleToggleCollapse,
-				onHoverEnter: handleHoverEnter,
-				onHoverLeave: handleHoverLeave,
+			  isCollapse: collapse.click && !collapse.hover,
+			  collapseClick: collapse.click,
+			  collapseHover: collapse.hover,
+			  onToggleCollapse: handleToggleCollapse,
+			  onHoverEnter: handleHoverEnter,
+			  onHoverLeave: handleHoverLeave
 			}}
 		>
 			{children}

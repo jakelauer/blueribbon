@@ -7,7 +7,8 @@ import BackgroundIllustration from "./illustration_background";
 
 // ----------------------------------------------------------------------
 
-function MotivationIllustration({ ...other }: BoxProps) {
+function MotivationIllustration ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_LIGHTER = theme.palette.primary.lighter;
@@ -20,11 +21,23 @@ function MotivationIllustration({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				xmlnsXlink="http://www.w3.org/1999/xlink"
+				width="100%"
+				height="100%"
+				viewBox="0 0 480 360"
+			>
 				<BackgroundIllustration />
 
 				<defs>
-					<linearGradient id="STYLE" x1="0%" x2="0%" y1="0%" y2="100%">
+					<linearGradient
+						id="STYLE"
+						x1="0%"
+						x2="0%"
+						y1="0%"
+						y2="100%"
+					>
 						<stop offset="0%" stopColor={PRIMARY_LIGHTER} />
 						<stop offset="100%" stopColor={PRIMARY_DARK} />
 					</linearGradient>
@@ -37,7 +50,12 @@ function MotivationIllustration({ ...other }: BoxProps) {
 					opacity="0.5"
 				/>
 
-				<path fill="url(#STYLE)" fillRule="nonzero" d="M139.96 74a4 4 0 014-4h17.312a4 4 0 014 4v180.316H139.96V74z" opacity="0.5" />
+				<path
+					fill="url(#STYLE)"
+					fillRule="nonzero"
+					d="M139.96 74a4 4 0 014-4h17.312a4 4 0 014 4v180.316H139.96V74z"
+					opacity="0.5"
+				/>
 
 				<path
 					fill={PRIMARY_DARKER}
@@ -65,7 +83,11 @@ function MotivationIllustration({ ...other }: BoxProps) {
 					d="M80.565 204.178L154.59 215.153 154.59 275.829 163.042 275.829 163.042 279.42 143.562 279.42 143.562 277.109 152.269 277.109 152.269 226.801 82.2777 213.27 82.2777 262.239 92.0204 262.239 92.0204 263.904 72.407 263.904 72.407 261.983 80.565 261.983z"
 				/>
 
-				<path fill={PRIMARY_MAIN} fillRule="nonzero" d="M109.905 132.725l-.261-.065c.101-.074.234-.053.261.065z" />
+				<path
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					d="M109.905 132.725l-.261-.065c.101-.074.234-.053.261.065z"
+				/>
 
 				<image
 					width="118"

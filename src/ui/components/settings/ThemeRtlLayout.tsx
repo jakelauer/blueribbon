@@ -13,16 +13,18 @@ type Props = {
 	children: ReactNode;
 };
 
-export default function ThemeRtlLayout({ children }: Props) {
+export default function ThemeRtlLayout ({ children }: Props)
+{
 	const theme = useTheme();
 
-	useEffect(() => {
+	useEffect(() =>
+	{
 		document.dir = theme.direction;
 	}, [theme.direction]);
 
 	const cacheRtl = createCache({
 		key: theme.direction === `rtl` ? `rtl` : `css`,
-		stylisPlugins: theme.direction === `rtl` ? [rtlPlugin] : [],
+		stylisPlugins: theme.direction === `rtl` ? [rtlPlugin] : []
 	});
 
 	return <CacheProvider value={cacheRtl}>{children}</CacheProvider>;

@@ -1,4 +1,12 @@
-import { Box, Button, FormGroup, Step, StepContent, StepLabel, Stepper } from "@mui/material";
+import {
+	Box,
+	Button,
+	FormGroup,
+	Step,
+	StepContent,
+	StepLabel,
+	Stepper
+} from "@mui/material";
 import { ReactElement, useState } from "react";
 
 type NamedElement = ReactElement<{ "data-name": string }>;
@@ -15,10 +23,12 @@ export interface Props {
 	};
 }
 
-export const WizardForm: React.FC<Props> = ({ children, labels, onChange }) => {
+export const WizardForm: React.FC<Props> = ({ children, labels, onChange }) =>
+{
 	const [step, setStep] = useState(0);
 
-	const changeStep = (newStep: number) => {
+	const changeStep = (newStep: number) =>
+	{
 		onChange?.(step, newStep);
 		setStep(newStep);
 	};
@@ -29,44 +39,55 @@ export const WizardForm: React.FC<Props> = ({ children, labels, onChange }) => {
 	return (
 		<>
 			<Stepper orientation="vertical" activeStep={step}>
-				{children.map((c, i) => {
-					return (
+				{children.map((c, i) =>
+				{
+				  return (
 						<Step key={i}>
 							<StepLabel>{c.props[`data-name`]}</StepLabel>
 							<StepContent>{c}</StepContent>
 						</Step>
-					);
+				  );
 				})}
 			</Stepper>
 
-			<FormGroup sx={{ flexDirection: `row` }}>
+			<FormGroup sx={{
+			  flexDirection: `row`
+			}}>
 				<Box
 					sx={{
-						display: `flex`,
-						flex: `1 0`,
-						justifyContent: `flex-end`,
-						m: 1,
+					  display: `flex`,
+					  flex: `1 0`,
+					  justifyContent: `flex-end`,
+					  m: 1
 					}}
 				>
-					<Button variant={`contained`} onClick={prevStep} disabled={step === 0}>
+					<Button
+						variant={`contained`}
+						onClick={prevStep}
+						disabled={step === 0}
+					>
 						{labels?.prev}
 					</Button>
 				</Box>
 				<Box
 					sx={{
-						display: `flex`,
-						flex: `1 0`,
-						justifyContent: `flex-start`,
-						m: 1,
+					  display: `flex`,
+					  flex: `1 0`,
+					  justifyContent: `flex-start`,
+					  m: 1
 					}}
 				>
-					{step === children.length - 1 ? (
-						<Button variant={`contained`}>{labels?.complete}</Button>
-					) : (
-						<Button variant={`contained`} onClick={nextStep}>
-							{labels?.next}
-						</Button>
-					)}
+					{step === children.length - 1
+					  ? (
+							<Button variant={`contained`}>
+								{labels?.complete}
+							</Button>
+					    )
+					  : (
+							<Button variant={`contained`} onClick={nextStep}>
+								{labels?.next}
+							</Button>
+					    )}
 				</Box>
 			</FormGroup>
 		</>
@@ -78,6 +99,6 @@ WizardForm.defaultProps = {
 	labels: {
 		complete: `Finish`,
 		next: `Next`,
-		prev: `Previous`,
-	},
+		prev: `Previous`
+	}
 };

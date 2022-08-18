@@ -29,10 +29,14 @@ interface Props {
 	children: ReactNode;
 }
 
-export const AppLayout: React.FC<Props> = ({ children }) => {
+export const AppLayout: React.FC<Props> = ({ children }) =>
+{
 	return (
 		<Wrapper>
-			<Helmet titleTemplate="%s | Blue Ribbon!" defaultTitle="Blue Ribbon"></Helmet>
+			<Helmet
+				titleTemplate="%s | Blue Ribbon!"
+				defaultTitle="Blue Ribbon"
+			></Helmet>
 			<ProgressBar />
 			<AppNavigation />
 			<Container maxWidth={`xl`}>{children}</Container>
@@ -40,7 +44,8 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
 	);
 };
 
-const Wrapper: React.FC<Props> = ({ children }) => {
+const Wrapper: React.FC<Props> = ({ children }) =>
+{
 	const settings = getSettings(Cookies.get());
 
 	return (

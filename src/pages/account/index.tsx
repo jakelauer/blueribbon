@@ -5,7 +5,8 @@ import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 const form = new UserForm();
 
-const Account = () => {
+const Account = () =>
+{
 	return (
 		<UserPage title="Account">
 			<AutoForm title={`Account`} formSchema={form.getFormMetadata()} />

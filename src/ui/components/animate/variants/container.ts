@@ -6,7 +6,8 @@ export type Props = {
 	staggerOut?: number;
 };
 
-export const varContainer = (props?: Props) => {
+export const varContainer = (props?: Props) =>
+{
 	const staggerIn = props?.staggerIn || 0.05;
 	const delayIn = props?.staggerIn || 0.05;
 	const staggerOut = props?.staggerIn || 0.05;
@@ -15,14 +16,14 @@ export const varContainer = (props?: Props) => {
 		animate: {
 			transition: {
 				staggerChildren: staggerIn,
-				delayChildren: delayIn,
-			},
+				delayChildren: delayIn
+			}
 		},
 		exit: {
 			transition: {
 				staggerChildren: staggerOut,
-				staggerDirection: -1,
-			},
-		},
+				staggerDirection: -1
+			}
+		}
 	};
 };

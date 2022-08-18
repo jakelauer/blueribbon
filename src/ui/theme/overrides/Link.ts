@@ -1,11 +1,12 @@
 // ----------------------------------------------------------------------
 
-export default function Link() {
+export default function Link ()
+{
 	return {
 		MuiLink: {
 			defaultProps: {
-				underline: `hover`,
-			},
-		},
+				underline: `hover`
+			}
+		}
 	};
 }

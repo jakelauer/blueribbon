@@ -5,7 +5,9 @@ require("dotenv").config({
 	path: `.env.${process.env.NODE_ENV}`,
 });
 
-const mongoDbConnectionString = `mongodb+srv://${encodeURIComponent(mongoAtlasUsername)}:${encodeURIComponent(mongoAtlasPassword)}@showribbon-test.gwiyu.mongodb.net`;
+const mongoDbConnectionString = `mongodb+srv://${encodeURIComponent(mongoAtlasUsername)}:${encodeURIComponent(
+	mongoAtlasPassword,
+)}@showribbon-test.gwiyu.mongodb.net`;
 
 const config: GatsbyConfig = {
 	graphqlTypegen: true,

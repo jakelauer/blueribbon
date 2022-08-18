@@ -10,7 +10,8 @@ type Props = {
 	children: React.ReactNode;
 };
 
-export default function ThemeSettings({ children }: Props) {
+export default function ThemeSettings ({ children }: Props)
+{
 	return (
 		<ThemeColorPresets>
 			<ThemeContrast>

@@ -5,7 +5,8 @@ import { Box, BoxProps } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-function CheckInIllustration({ ...other }: BoxProps) {
+function CheckInIllustration ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_LIGHTER = theme.palette.primary.lighter;
@@ -18,7 +19,12 @@ function CheckInIllustration({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 200 200">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="100%"
+				height="100%"
+				viewBox="0 0 200 200"
+			>
 				<path
 					fill={PRIMARY_MAIN}
 					d="M129.948 130.751a4.977 4.977 0 00-4.865 3.938h6.937v17.409h-6.937a4.973 4.973 0 009.839-1.036v-15.337a4.97 4.97 0 00-3.071-4.595 4.97 4.97 0 00-1.903-.379z"
@@ -49,7 +55,10 @@ function CheckInIllustration({ ...other }: BoxProps) {
 					d="M83.108 34.586c5.952 0 10.777-4.825 10.777-10.778 0-5.952-4.825-10.777-10.777-10.777-5.952 0-10.777 4.825-10.777 10.777 0 5.953 4.825 10.778 10.777 10.778z"
 				/>
 
-				<path fill="#FBCDBE" d="M91.398 45.363l-14.922.414-1.244-16.166 14.508-.414 1.658 16.166z" />
+				<path
+					fill="#FBCDBE"
+					d="M91.398 45.363l-14.922.414-1.244-16.166 14.508-.414 1.658 16.166z"
+				/>
 
 				<path
 					fill={PRIMARY_DARK}
@@ -71,7 +80,10 @@ function CheckInIllustration({ ...other }: BoxProps) {
 					d="M137.823 67.746l1.795-6.695a11.274 11.274 0 00-5.085-13.19L105.906 31.27l-.414 18.238 21.14 9.119a37.5 37.5 0 01.564 9.418c3.298-.98 7.322-1.188 10.627-.299z"
 				/>
 
-				<path fill={PRIMARY_DARKER} d="M93.678 17.798l-11.191 2.073a7.875 7.875 0 01-7.876-7.876h19.482l-.415 5.803z" />
+				<path
+					fill={PRIMARY_DARKER}
+					d="M93.678 17.798l-11.191 2.073a7.875 7.875 0 01-7.876-7.876h19.482l-.415 5.803z"
+				/>
 
 				<path
 					fill="#FBCDBE"
@@ -83,7 +95,10 @@ function CheckInIllustration({ ...other }: BoxProps) {
 					d="M107.357 52.858h-.12V49.56a1.908 1.908 0 00-1.909-1.908h-6.986a1.909 1.909 0 00-1.909 1.908v18.091a1.91 1.91 0 001.909 1.909h6.986a1.904 1.904 0 001.763-1.179c.096-.231.146-.48.146-.73V55.205h.12v-2.347z"
 				/>
 
-				<path fill={PRIMARY_DARK} d="M101.554 54.69a1.658 1.658 0 100-3.318 1.658 1.658 0 000 3.317z" />
+				<path
+					fill={PRIMARY_DARK}
+					d="M101.554 54.69a1.658 1.658 0 100-3.318 1.658 1.658 0 000 3.317z"
+				/>
 
 				<path
 					fill="#FBCDBE"

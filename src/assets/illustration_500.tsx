@@ -7,7 +7,8 @@ import BackgroundIllustration from "./illustration_background";
 
 // ----------------------------------------------------------------------
 
-function SeverErrorIllustration({ ...other }: BoxProps) {
+function SeverErrorIllustration ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_LIGHTER = theme.palette.primary.lighter;
@@ -20,7 +21,13 @@ function SeverErrorIllustration({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 480 360">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				xmlnsXlink="http://www.w3.org/1999/xlink"
+				width="100%"
+				height="100%"
+				viewBox="0 0 480 360"
+			>
 				<BackgroundIllustration />
 
 				<path
@@ -60,9 +67,25 @@ function SeverErrorIllustration({ ...other }: BoxProps) {
 					d="M255.417 228.267v14.023a1.233 1.233 0 11-2.126 0v-14.023a9.207 9.207 0 00-10.312-9.142 9.207 9.207 0 00-10.303 9.142v14.023a1.234 1.234 0 11-2.136 0v-14.023a12.474 12.474 0 0118.974-11.691 12.472 12.472 0 015.885 11.691h.018z"
 				/>
 
-				<rect width="47.766" height="47.766" x="217.347" y="242.234" fill={PRIMARY_DARKER} fillRule="nonzero" rx="7.305" />
+				<rect
+					width="47.766"
+					height="47.766"
+					x="217.347"
+					y="242.234"
+					fill={PRIMARY_DARKER}
+					fillRule="nonzero"
+					rx="7.305"
+				/>
 
-				<rect width="39.479" height="47.756" x="225.633" y="242.244" fill={PRIMARY_DARK} fillRule="nonzero" rx="7.297" />
+				<rect
+					width="39.479"
+					height="47.756"
+					x="225.633"
+					y="242.244"
+					fill={PRIMARY_DARK}
+					fillRule="nonzero"
+					rx="7.297"
+				/>
 
 				<path
 					fill={PRIMARY_DARKER}
@@ -70,13 +93,47 @@ function SeverErrorIllustration({ ...other }: BoxProps) {
 					d="M244.424 267.737c.503-1.769-.846-3.727-1.168-5.539a3.038 3.038 0 115.987-.025c-.307 1.813-1.628 3.808-1.075 5.562l.399 1.269a2.361 2.361 0 11-4.522.064l.379-1.331z"
 				/>
 
-				<rect width="38" height="38.752" x="228" y="145" fill={PRIMARY_MAIN} fillRule="nonzero" rx="8" />
+				<rect
+					width="38"
+					height="38.752"
+					x="228"
+					y="145"
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					rx="8"
+				/>
 
-				<rect width="28.413" height="38.752" x="80.568" y="129.67" fill={PRIMARY_MAIN} fillRule="nonzero" opacity="0.18" rx="3" />
+				<rect
+					width="28.413"
+					height="38.752"
+					x="80.568"
+					y="129.67"
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					opacity="0.18"
+					rx="3"
+				/>
 
-				<rect width="28.413" height="38.752" x="73.645" y="135.949" fill="#FFF" fillRule="nonzero" rx="3" />
+				<rect
+					width="28.413"
+					height="38.752"
+					x="73.645"
+					y="135.949"
+					fill="#FFF"
+					fillRule="nonzero"
+					rx="3"
+				/>
 
-				<rect width="28.413" height="38.752" x="73.645" y="135.949" fill={PRIMARY_MAIN} fillRule="nonzero" opacity="0.48" rx="3" />
+				<rect
+					width="28.413"
+					height="38.752"
+					x="73.645"
+					y="135.949"
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					opacity="0.48"
+					rx="3"
+				/>
 
 				<path
 					fill={PRIMARY_DARKER}
@@ -90,9 +147,25 @@ function SeverErrorIllustration({ ...other }: BoxProps) {
 					d="M109.782 247.836c-1.041-7.265-2.109-14.621-5.027-21.351-2.919-6.73-7.983-12.89-14.86-15.403-.203 10.397-.402 20.792-.599 31.184-.12 6.002-.22 12.125 1.501 17.879 3.03 10.128 13.516 21.922 23.616 25.255 1.501-4.843-1.013-12.181-1.731-17.217l-2.9-20.347z"
 				/>
 
-				<rect width="114" height="36" x="111.587" y="164" fill={PRIMARY_DARK} fillRule="nonzero" rx="8.428" />
+				<rect
+					width="114"
+					height="36"
+					x="111.587"
+					y="164"
+					fill={PRIMARY_DARK}
+					fillRule="nonzero"
+					rx="8.428"
+				/>
 
-				<rect width="108" height="36" x="117.587" y="164" fill={PRIMARY_MAIN} fillRule="nonzero" rx="8.428" />
+				<rect
+					width="108"
+					height="36"
+					x="117.587"
+					y="164"
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					rx="8.428"
+				/>
 
 				<path
 					fill={PRIMARY_LIGHTER}
@@ -100,7 +173,15 @@ function SeverErrorIllustration({ ...other }: BoxProps) {
 					d="M141.587 181.844a4 4 0 11-8 0 4 4 0 018 0zm12 0a4 4 0 11-8 0 4 4 0 018 0zm8 4a4 4 0 100-8 4 4 0 000 8z"
 				/>
 
-				<rect width="114" height="36" x="111.587" y="208" fill={PRIMARY_DARK} fillRule="nonzero" rx="8.428" />
+				<rect
+					width="114"
+					height="36"
+					x="111.587"
+					y="208"
+					fill={PRIMARY_DARK}
+					fillRule="nonzero"
+					rx="8.428"
+				/>
 
 				<path
 					fill={PRIMARY_MAIN}
@@ -114,11 +195,35 @@ function SeverErrorIllustration({ ...other }: BoxProps) {
 					d="M142 226a4 4 0 11-8 0 4 4 0 018 0zm12 0a4 4 0 11-8 0 4 4 0 018 0zm8 4a4 4 0 100-8 4 4 0 000 8z"
 				/>
 
-				<rect width="32" height="4" x="183" y="224" fill={PRIMARY_LIGHTER} fillRule="nonzero" rx="1" />
+				<rect
+					width="32"
+					height="4"
+					x="183"
+					y="224"
+					fill={PRIMARY_LIGHTER}
+					fillRule="nonzero"
+					rx="1"
+				/>
 
-				<rect width="114" height="36" x="111.587" y="252.209" fill={PRIMARY_DARK} fillRule="nonzero" rx="8.428" />
+				<rect
+					width="114"
+					height="36"
+					x="111.587"
+					y="252.209"
+					fill={PRIMARY_DARK}
+					fillRule="nonzero"
+					rx="8.428"
+				/>
 
-				<rect width="108" height="36" x="118" y="252" fill={PRIMARY_MAIN} fillRule="nonzero" rx="8.428" />
+				<rect
+					width="108"
+					height="36"
+					x="118"
+					y="252"
+					fill={PRIMARY_MAIN}
+					fillRule="nonzero"
+					rx="8.428"
+				/>
 
 				<path
 					fill={PRIMARY_LIGHTER}
@@ -126,7 +231,15 @@ function SeverErrorIllustration({ ...other }: BoxProps) {
 					d="M142 270a4 4 0 11-8 0 4 4 0 018 0zm12 0a4 4 0 11-8 0 4 4 0 018 0zm8 4a4 4 0 100-8 4 4 0 000 8z"
 				/>
 
-				<rect width="32" height="4" x="182" y="268" fill={PRIMARY_LIGHTER} fillRule="nonzero" rx="1" />
+				<rect
+					width="32"
+					height="4"
+					x="182"
+					y="268"
+					fill={PRIMARY_LIGHTER}
+					fillRule="nonzero"
+					rx="1"
+				/>
 
 				<path
 					fill={PRIMARY_DARKER}

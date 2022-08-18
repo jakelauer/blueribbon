@@ -5,7 +5,8 @@ import { Box, BoxProps } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-function CheckOutIllustration({ ...other }: BoxProps) {
+function CheckOutIllustration ({ ...other }: BoxProps)
+{
 	const theme = useTheme();
 
 	const PRIMARY_LIGHT = theme.palette.primary.light;
@@ -18,7 +19,12 @@ function CheckOutIllustration({ ...other }: BoxProps) {
 
 	return (
 		<Box {...other}>
-			<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 200 200">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="100%"
+				height="100%"
+				viewBox="0 0 200 200"
+			>
 				<path
 					fill="#FBCDBE"
 					d="M169.677 104.722a5.342 5.342 0 006.376-3.122 5.347 5.347 0 00-2.349-6.7l-11.345-12.87-9.595 2.073 13.496 13.219a5.309 5.309 0 00-.019 4.498 5.301 5.301 0 001.396 1.832c.593.502 1.29.867 2.04 1.07z"
@@ -44,11 +50,20 @@ function CheckOutIllustration({ ...other }: BoxProps) {
 					d="M80.767 107.443a5.346 5.346 0 01-4.374-9.672l10.879-13.266 9.663 1.73-13.016 13.69a5.316 5.316 0 01-3.152 7.518zM154.914 165.818l6.739-.106-.811 22.969h-5.927l-.001-22.863z"
 				/>
 
-				<path fill={PRIMARY_DARK} d="M153.403 186.746l11.673-.001h.001a7.439 7.439 0 017.439 7.439v.242l-19.113.001v-7.681z" />
+				<path
+					fill={PRIMARY_DARK}
+					d="M153.403 186.746l11.673-.001h.001a7.439 7.439 0 017.439 7.439v.242l-19.113.001v-7.681z"
+				/>
 
-				<path fill="#FBCDBE" d="M110.295 159.726l7.362 4.726-14.726 17.716-4.988-3.203 12.352-19.239z" />
+				<path
+					fill="#FBCDBE"
+					d="M110.295 159.726l7.362 4.726-14.726 17.716-4.988-3.203 12.352-19.239z"
+				/>
 
-				<path fill={PRIMARY_DARK} d="M97.717 176.52l9.823 6.307h.001a7.44 7.44 0 012.24 10.279l-.13.203-16.084-10.325 4.15-6.464z" />
+				<path
+					fill={PRIMARY_DARK}
+					d="M97.717 176.52l9.823 6.307h.001a7.44 7.44 0 012.24 10.279l-.13.203-16.084-10.325 4.15-6.464z"
+				/>
 
 				<path
 					fill={PRIMARY_DARKER}
@@ -75,7 +90,10 @@ function CheckOutIllustration({ ...other }: BoxProps) {
 					d="M122.621 52.996L89.432 96.543l-8.754-3.648 31.371-52.893 10.572 12.994zM132.466 29.802h-22.827a1.773 1.773 0 01-1.771-1.77v-9.84a13.186 13.186 0 018.137-12.188 13.185 13.185 0 0118.232 12.188v9.84a1.77 1.77 0 01-1.771 1.77z"
 				/>
 
-				<path fill="#FBCDBE" d="M132.244 24.543a9.667 9.667 0 00-16.964-9.273 9.667 9.667 0 1016.964 9.273z" />
+				<path
+					fill="#FBCDBE"
+					d="M132.244 24.543a9.667 9.667 0 00-16.964-9.273 9.667 9.667 0 1016.964 9.273z"
+				/>
 
 				<path
 					fill={PRIMARY_DARKER}

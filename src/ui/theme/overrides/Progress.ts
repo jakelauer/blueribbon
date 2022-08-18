@@ -2,7 +2,8 @@ import { Theme } from "@mui/material/styles";
 
 // ----------------------------------------------------------------------
 
-export default function Progress(theme: Theme) {
+export default function Progress (theme: Theme)
+{
 	const isLight = theme.palette.mode === `light`;
 
 	return {
@@ -10,18 +11,19 @@ export default function Progress(theme: Theme) {
 			styleOverrides: {
 				root: {
 					borderRadius: 4,
-					overflow: `hidden`,
+					overflow: `hidden`
 				},
 				bar: {
-					borderRadius: 4,
+					borderRadius: 4
 				},
 				colorPrimary: {
-					backgroundColor: theme.palette.primary[isLight ? `lighter` : `darker`],
+					backgroundColor:
+						theme.palette.primary[isLight ? `lighter` : `darker`]
 				},
 				buffer: {
-					backgroundColor: `transparent`,
-				},
-			},
-		},
+					backgroundColor: `transparent`
+				}
+			}
+		}
 	};
 }

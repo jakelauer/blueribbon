@@ -12,17 +12,19 @@ interface Props extends BoxProps {
 	title: string;
 }
 
-const ClubPage = forwardRef<HTMLDivElement, Props>(({ children, title = ``, ...other }, ref) => (
-	<>
-		<Helmet>
-			<title>{title}</title>
-		</Helmet>
-		<ClubLayout>
-			<Box ref={ref} {...other}>
-				{children}
-			</Box>
-		</ClubLayout>
-	</>
-));
+const ClubPage = forwardRef<HTMLDivElement, Props>(
+	({ children, title = ``, ...other }, ref) => (
+		<>
+			<Helmet>
+				<title>{title}</title>
+			</Helmet>
+			<ClubLayout>
+				<Box ref={ref} {...other}>
+					{children}
+				</Box>
+			</ClubLayout>
+		</>
+	)
+);
 
 export default ClubPage;

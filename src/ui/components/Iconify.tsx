@@ -10,6 +10,9 @@ interface Props extends BoxProps {
 	icon: IconifyIcon | string;
 }
 
-export default function Iconify({ icon, sx, ...other }: Props) {
-	return <Box component={Icon} icon={icon} sx={{ ...sx }} {...other} />;
+export default function Iconify ({ icon, sx, ...other }: Props)
+{
+	return <Box component={Icon} icon={icon} sx={{
+		...sx
+	}} {...other} />;
 }

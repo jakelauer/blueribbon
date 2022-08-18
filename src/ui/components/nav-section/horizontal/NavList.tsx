@@ -14,7 +14,8 @@ type NavListRootProps = {
 	list: NavListProps;
 };
 
-export function NavListRoot({ list }: NavListRootProps) {
+export function NavListRoot ({ list }: NavListRootProps)
+{
 	const menuRef = useRef(null);
 
 	const { pathname } = useLocation();
@@ -25,37 +26,53 @@ export function NavListRoot({ list }: NavListRootProps) {
 
 	const hasChildren = list.children;
 
-	useEffect(() => {
-		if (open) {
+	useEffect(() =>
+	{
+		if (open)
+		{
 			handleClose();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pathname]);
 
-	const handleOpen = () => {
+	const handleOpen = () =>
+	{
 		setOpen(true);
 	};
 
-	const handleClose = () => {
+	const handleClose = () =>
+	{
 		setOpen(false);
 	};
 
-	if (hasChildren) {
+	if (hasChildren)
+	{
 		return (
 			<>
-				<NavItemRoot open={open} item={list} active={active} ref={menuRef} onMouseEnter={handleOpen} onMouseLeave={handleClose} />
+				<NavItemRoot
+					open={open}
+					item={list}
+					active={active}
+					ref={menuRef}
+					onMouseEnter={handleOpen}
+					onMouseLeave={handleClose}
+				/>
 
 				<PaperStyle
 					open={open}
 					anchorEl={menuRef.current}
-					anchorOrigin={{ vertical: `bottom`, horizontal: `left` }}
-					transformOrigin={{ vertical: `top`, horizontal: `left` }}
+					anchorOrigin={{
+					  vertical: `bottom`, horizontal: `left`
+					}}
+					transformOrigin={{
+					  vertical: `top`, horizontal: `left`
+					}}
 					PaperProps={{
-						onMouseEnter: handleOpen,
-						onMouseLeave: handleClose,
+					  onMouseEnter: handleOpen,
+					  onMouseLeave: handleClose
 					}}
 				>
-					{(list.children || []).map((item) => (
+					{(list.children || []).map(item => (
 						<NavListSub key={item.title + item.path} list={item} />
 					))}
 				</PaperStyle>
@@ -72,7 +89,8 @@ type NavListSubProps = {
 	list: NavListProps;
 };
 
-function NavListSub({ list }: NavListSubProps) {
+function NavListSub ({ list }: NavListSubProps)
+{
 	const menuRef = useRef(null);
 
 	const { pathname } = useLocation();
@@ -81,32 +99,46 @@ function NavListSub({ list }: NavListSubProps) {
 
 	const [open, setOpen] = useState(false);
 
-	const handleOpen = () => {
+	const handleOpen = () =>
+	{
 		setOpen(true);
 	};
 
-	const handleClose = () => {
+	const handleClose = () =>
+	{
 		setOpen(false);
 	};
 
 	const hasChildren = list.children;
 
-	if (hasChildren) {
+	if (hasChildren)
+	{
 		return (
 			<>
-				<NavItemSub ref={menuRef} open={open} item={list} active={active} onMouseEnter={handleOpen} onMouseLeave={handleClose} />
+				<NavItemSub
+					ref={menuRef}
+					open={open}
+					item={list}
+					active={active}
+					onMouseEnter={handleOpen}
+					onMouseLeave={handleClose}
+				/>
 
 				<PaperStyle
 					open={open}
 					anchorEl={menuRef.current}
-					anchorOrigin={{ vertical: `top`, horizontal: `right` }}
-					transformOrigin={{ vertical: `top`, horizontal: `left` }}
+					anchorOrigin={{
+					  vertical: `top`, horizontal: `right`
+					}}
+					transformOrigin={{
+					  vertical: `top`, horizontal: `left`
+					}}
 					PaperProps={{
-						onMouseEnter: handleOpen,
-						onMouseLeave: handleClose,
+					  onMouseEnter: handleOpen,
+					  onMouseLeave: handleClose
 					}}
 				>
-					{(list.children || []).map((item) => (
+					{(list.children || []).map(item => (
 						<NavListSub key={item.title + item.path} list={item} />
 					))}
 				</PaperStyle>

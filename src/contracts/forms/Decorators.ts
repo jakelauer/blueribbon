@@ -1,6 +1,9 @@
 import "reflect-metadata";
 
-export type ExcludeMethods<T> = Pick<T, { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]>;
+export type ExcludeMethods<T> = Pick<
+	T,
+	{ [K in keyof T]: T[K] extends Function ? never : K }[keyof T]
+>;
 
 export type ClassDataProp<T> = NonNullable<keyof ExcludeMethods<T>>;
 export type ClassDataProps<T> = (keyof ExcludeMethods<T>)[];
@@ -19,7 +22,15 @@ export interface Decorated {
 const formFieldKey = Symbol(`FormField`);
 const validationRegexKey = Symbol(`ValidationRegex`);
 
-export type FieldTypes = "text" | "number" | "radio" | "check" | "switch" | "longtext" | "datetime" | "select";
+export type FieldTypes =
+	| "text"
+	| "number"
+	| "radio"
+	| "check"
+	| "switch"
+	| "longtext"
+	| "datetime"
+	| "select";
 
 export const FormField = (
 	fieldType: FieldTypes,
@@ -27,22 +38,26 @@ export const FormField = (
 		label: string;
 		groupLabel?: string;
 		selectVals?: Record<string, string>;
-	},
-) => {
+	}
+) =>
+{
 	return Reflect.metadata(formFieldKey, {
 		fieldType,
-		...formField,
+		...formField
 	});
 };
 
-export const GetFormField = (target: any, propertyKey: string) => {
+export const GetFormField = (target: any, propertyKey: string) =>
+{
 	return Reflect.getMetadata(formFieldKey, target, propertyKey);
 };
 
-export const ValidationRegex = (regex: string) => {
+export const ValidationRegex = (regex: string) =>
+{
 	return Reflect.metadata(validationRegexKey, regex);
 };
 
-export const GetValidationRegex = (target: Object, propertyKey: string) => {
+export const GetValidationRegex = (target: Object, propertyKey: string) =>
+{
 	return Reflect.getMetadata(validationRegexKey, target, propertyKey);
 };

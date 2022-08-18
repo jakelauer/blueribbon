@@ -45,7 +45,8 @@ import LoadingButton from "./LoadingButton";
 
 // ----------------------------------------------------------------------
 
-export default function ComponentsOverrides(theme: Theme) {
+export default function ComponentsOverrides (theme: Theme)
+{
 	return Object.assign(
 		Fab(theme),
 		Tabs(theme),
@@ -88,6 +89,6 @@ export default function ComponentsOverrides(theme: Theme) {
 		Autocomplete(theme),
 		ControlLabel(theme),
 		ToggleButton(theme),
-		LoadingButton(theme),
+		LoadingButton(theme)
 	);
 }
